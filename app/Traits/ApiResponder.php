@@ -6,14 +6,14 @@ use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
-| Api Responser Trait
+| Api Responder Trait
 |--------------------------------------------------------------------------
 |
 | This trait will be used for any response we send to clients.
 |
 */
 
-trait ApiResponser
+trait ApiResponder
 {
 	/**
      * Return a success JSON response.
