@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Notifications\ApiPasswordResetNotification;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::get('/mail', function () {
+//     return (new ApiPasswordResetNotification(43445))->toMail('wwww');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
