@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\ApiResponder;
+use Illuminate\Support\Facades\Password;
 
 
 class AuthController extends Controller
@@ -54,6 +55,21 @@ class AuthController extends Controller
         return $this->success([
             'token' => auth()->user()->createToken($attr['deviceId'])->plainTextToken
         ]);
+    }
+
+    public function sendResetLink(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+        ]);
+        
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+
+        return $status == Password::RESET_LINK_SENT
+                    ? $this->success([], 'Password reset link sent')
+                    : $this->error('Password reset request failed', 401);
     }
 
 }
