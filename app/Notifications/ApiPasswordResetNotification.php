@@ -48,7 +48,7 @@ class ApiPasswordResetNotification extends Notification
                     ->greeting('Hello!')
                     ->line('Please enter the code below in your password reset page:')
                     ->line($this->reset_code)
-                    ->line('You are receiving this email because we received a password reset request for your account.')
+                    ->line('This password reset link will expire in 30 minutes.')
                     ->line('If you did not request a password reset, no further action is required.');
     }
 
