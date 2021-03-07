@@ -33,4 +33,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         return auth()->user();
     });
 
+    Route::post('/applications', [ApplicationController::class, 'store']);
+
 });

@@ -16,9 +16,9 @@ class ApplicationResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->title,
+            'title' => $this->title,
             'description' => $this->description,
-            'image' => $this->image_url,
+            'image_url' => $this->image_url,
             'target_amount' => $this->target_amount,
             'amount_gained' => $this->amount_gained,
             'progress' => round(($this->amount_gained / $this->target_amount), 3)

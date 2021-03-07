@@ -25,16 +25,6 @@ class ApplicationController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -42,7 +32,21 @@ class ApplicationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedRequest = $request->validate([
+            'title' => 'required|string',
+            'description' => 'required|string',
+            'image_url' => 'required|string',
+            'target_amount' => 'required|numeric',
+            'amount_gained' => 'required|numeric',
+            'user_id' => 'required|numeric',
+            'category_id' => 'required|numeric'
+        ]);
+
+        $application = Application::create($validatedRequest);
+
+        return $this->success([
+            'application' => $application,
+        ]);
     }
 
     /**
@@ -56,16 +60,6 @@ class ApplicationController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Application  $application
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Application $application)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
