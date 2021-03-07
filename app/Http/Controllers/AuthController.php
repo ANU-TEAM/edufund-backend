@@ -31,7 +31,7 @@ class AuthController extends Controller
 
         return $this->success([
             'user' => $user,
-            'token' => $user->createToken($attr['deviceId'])->plainTextToken
+            'token' => $user->createToken($request->deviceId)->plainTextToken
         ]);
     }
 
@@ -53,7 +53,7 @@ class AuthController extends Controller
         }
 
         return $this->success([
-            'token' => auth()->user()->createToken($attr['deviceId'])->plainTextToken
+            'token' => auth()->user()->createToken($request->deviceId)->plainTextToken
         ]);
     }
 
