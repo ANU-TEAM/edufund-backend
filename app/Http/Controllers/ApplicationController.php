@@ -19,7 +19,7 @@ class ApplicationController extends Controller
     {
         return $this->success(
             ApplicationResource::collection(Application::all()),
-            'Categories fetched successfully',
+            'Applications fetched successfully',
             200
         );
     }

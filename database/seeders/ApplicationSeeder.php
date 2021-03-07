@@ -16,7 +16,7 @@ class ApplicationSeeder extends Seeder
         \App\Models\Application::create([
             'title' => 'Sosu First Fund', 'description' => 'Hello Hello Sosu Hello Sosu Hello Sosu Sosu',
             'image_url' => 'https://via.placeholder.com/150',
-            'target_amount' => 400, 'amount_gained' => 20, 'user_id' => 1, 'category_id' => 2,
+            'target_amount' => 400, 'amount_gained' => 20, 'user_id' => 1, 'category_id' => 3,
         ]);
 
         \App\Models\Application::create([
@@ -26,7 +26,7 @@ class ApplicationSeeder extends Seeder
 
         \App\Models\Application::create([
             'title' => 'Sosu Third Fund', 'description' => 'Hello Sosu', 'image_url' => 'https://via.placeholder.com/150',
-            'target_amount' => 100, 'amount_gained' => 20, 'user_id' => 1, 'category_id' => 2,
+            'target_amount' => 100, 'amount_gained' => 20, 'user_id' => 1, 'category_id' => 1,
         ]);
     }
 }
