@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Http\Resources\CategoryResource;
+use App\Traits\ApiResponder;
 use Illuminate\Http\Request;
+
 
 class CategoryController extends Controller
 {
+    use ApiResponder;
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +19,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return Category::all();
+        return $this->success(
+            CategoryResource::collection(Category::all()), 'Categories fetched successfully', 200
+        );
     }
 
     /**
