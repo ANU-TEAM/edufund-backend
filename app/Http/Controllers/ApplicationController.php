@@ -18,7 +18,7 @@ class ApplicationController extends Controller
     public function index()
     {
         return $this->success(
-            ApplicationResource::collection(Application::where('verified', 1)->get()),
+            ApplicationResource::collection(Application::where('approved', 1)->get()),
             'Applications fetched successfully',
             200
         );

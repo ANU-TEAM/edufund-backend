@@ -23,4 +23,16 @@ class Application extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function approve()
+    {
+        $this->approved = 1;
+        return $this->save();
+    }
+
+    public function reject()
+    {
+        $this->approved = 0;
+        return $this->save();
+    }
 }
