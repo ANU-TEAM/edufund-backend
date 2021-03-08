@@ -88,6 +88,7 @@ class ApplicationController extends Controller
         }
 
         $application = Application::findOrFail($id);
+        $this->authorize('update', $application);
 
         $application->title = $request->title;
         $application->description = $request->description;
@@ -112,6 +113,8 @@ class ApplicationController extends Controller
     public function destroy($id)
     {
         $application = Application::findOrFail($id);
+
+        $this->authorize('delete', $application);
 
         if($application->delete()){
             return $this->success(
