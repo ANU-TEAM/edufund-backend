@@ -16,7 +16,7 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        $attr = $request->validate([
+        $validatedRequest = $request->validate([
             'deviceId' => 'required|string',
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|unique:users,email',
@@ -24,20 +24,20 @@ class AuthController extends Controller
         ]);
 
         $user = User::create([
-            'name' => $attr['name'],
-            'password' => bcrypt($attr['password']),
-            'email' => $attr['email']
+            'name' => $validatedRequest['name'],
+            'password' => bcrypt($validatedRequest['password']),
+            'email' => $validatedRequest['email']
         ]);
 
         return $this->success([
             'user' => $user,
-            'token' => $user->createToken($attr['deviceId'])->plainTextToken
+            'token' => $user->createToken($validatedRequest['deviceId'])->plainTextToken
         ]);
     }
 
     public function login(Request $request)
     {
-        $attr = $request->validate([
+        $validatedRequest = $request->validate([
             'deviceId' => 'required|string',
             'email' => 'required|string|email|',
             'password' => 'required|string|min:8'
@@ -53,7 +53,7 @@ class AuthController extends Controller
         }
 
         return $this->success([
-            'token' => auth()->user()->createToken($attr['deviceId'])->plainTextToken
+            'token' => auth()->user()->createToken($validatedRequest['deviceId'])->plainTextToken
         ]);
     }
 
