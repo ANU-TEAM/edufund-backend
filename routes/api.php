@@ -34,5 +34,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     });
 
     Route::post('/applications', [ApplicationController::class, 'store']);
+    Route::get('/applications/{id}', [ApplicationController::class, 'show']);
 
 });

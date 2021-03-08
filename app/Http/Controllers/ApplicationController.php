@@ -46,6 +46,7 @@ class ApplicationController extends Controller
 
         return $this->success(
             new ApplicationResource($application),
+            'Application was created successfully'
         );
     }
 
@@ -55,9 +56,13 @@ class ApplicationController extends Controller
      * @param  \App\Models\Application  $application
      * @return \Illuminate\Http\Response
      */
-    public function show(Application $application)
+    public function show($id)
     {
-        //
+        return $this->success(
+            new ApplicationResource(Application::findOrFail($id)),
+            'Application retrieved successfully',
+            200
+        );
     }
 
 
