@@ -20,6 +20,7 @@ class CreateApplicationsTable extends Migration
             $table->string('image_url');
             $table->float('target_amount');
             $table->float('amount_gained');
+            $table->unsignedTinyInteger('verified')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('category_id');
