@@ -73,9 +73,34 @@ class ApplicationController extends Controller
      * @param  \App\Models\Application  $application
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Application $application)
+    public function update(Request $request, $id)
     {
-        //
+        $validator = validator($request->all(), [
+            'title' => 'required|string',
+            'description' => 'required|string',
+            'image_url' => 'required|string',
+            'target_amount' => 'required|numeric',
+            'category_id' => 'required|numeric'
+        ]);
+
+        if ($validator->fails()) {
+            return $this->error("Validation failed", 400, $validator->errors()->all());
+        }
+
+        $application = Application::findOrFail($id);
+
+        $application->title = $request->title;
+        $application->description = $request->description;
+        $application->image_url = $request->image_url;
+        $application->target_amount = $request->target_amount;
+        $application->category_id = $request->category_id;
+
+        $application->save();
+
+        return $this->success(
+            new ApplicationResource($application),
+            'Application updated successfully'
+        );
     }
 
     /**
@@ -84,8 +109,15 @@ class ApplicationController extends Controller
      * @param  \App\Models\Application  $application
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Application $application)
+    public function destroy($id)
     {
-        //
+        $application = Application::findOrFail($id);
+
+        if($application->delete()){
+            return $this->success(
+                'Application deleted successfully'
+            );
+        }
+        
     }
 }

@@ -35,5 +35,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::post('/applications', [ApplicationController::class, 'store']);
     Route::get('/applications/{id}', [ApplicationController::class, 'show']);
+    Route::patch('/applications/{id}', [ApplicationController::class, 'update']);
+    Route::delete('/applications/{id}', [ApplicationController::class, 'destroy']);
 
 });
