@@ -44,9 +44,9 @@ class ApplicationController extends Controller
 
         $application = Application::create($validatedRequest);
 
-        return $this->success([
-            'application' => $application,
-        ]);
+        return $this->success(
+            new ApplicationResource($application),
+        );
     }
 
     /**
