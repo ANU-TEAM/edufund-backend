@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\ApiResponder;
 use Illuminate\Support\Facades\Password;
+use App\Http\Resources\UserResource;
 
 
 class AuthController extends Controller
@@ -30,7 +31,7 @@ class AuthController extends Controller
         ]);
 
         return $this->success([
-            'user' => $user,
+            'user' => new UserResource($user),
             'token' => $user->createToken($validatedRequest['deviceId'])->plainTextToken
         ]);
     }
@@ -53,6 +54,7 @@ class AuthController extends Controller
         }
 
         return $this->success([
+            'user' => new UserResource(auth()->user()),
             'token' => auth()->user()->createToken($validatedRequest['deviceId'])->plainTextToken
         ]);
     }
