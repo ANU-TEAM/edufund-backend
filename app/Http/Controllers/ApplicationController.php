@@ -37,12 +37,12 @@ class ApplicationController extends Controller
             'description' => 'required|string',
             'image_url' => 'required|string',
             'target_amount' => 'required|numeric',
-            'amount_gained' => 'required|numeric',
-            'user_id' => 'required|numeric',
             'category_id' => 'required|numeric'
         ]);
 
-        $application = Application::create($validatedRequest);
+        $application = Application::create($validatedRequest + [
+            'user_id' => auth()->user()->id
+        ]);
 
         return $this->success(
             new ApplicationResource($application),

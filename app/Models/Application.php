@@ -10,8 +10,7 @@ class Application extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'description', 'image_url', 'target_amount',
-        'amount_gained', 'user_id', 'category_id'
+        'title', 'description', 'image_url', 'target_amount', 'user_id', 'category_id'
     ];
     
     public function category()
