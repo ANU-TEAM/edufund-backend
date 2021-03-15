@@ -27,6 +27,8 @@ Route::get('/categories', [CategoryController::class, 'index']);
 
 Route::get('/applications', [ApplicationController::class, 'index']);
 
+Route::get('/applications/{id}', [ApplicationController::class, 'show']);
+
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::get('/user', function () {
@@ -34,7 +36,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     });
 
     Route::post('/applications', [ApplicationController::class, 'store']);
-    Route::get('/applications/{id}', [ApplicationController::class, 'show']);
     Route::patch('/applications/{id}', [ApplicationController::class, 'update']);
     Route::delete('/applications/{id}', [ApplicationController::class, 'destroy']);
 
