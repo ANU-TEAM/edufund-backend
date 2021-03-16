@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Models\Application;
 use App\Http\Resources\CategoryResource;
+use Illuminate\Support\Facades\Storage;
 
 class ApplicationResource extends JsonResource
 {
@@ -20,7 +21,7 @@ class ApplicationResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
-            'image_url' => $this->image_url,
+            'image_url' => Storage::disk('public')->url($this->image_url),
             'target_amount' => $this->target_amount,
             'amount_gained' => $this->amount_gained,
             'progress' => round(($this->amount_gained / $this->target_amount), 3),
