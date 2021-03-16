@@ -93,11 +93,13 @@ class ApplicationController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $application = Application::findOrFail($id);
+        
         $validator = validator($request->all(), [
             'title' => 'required|string',
             'description' => 'required|string',
-            'image_url' => 'required|string',
-            'target_amount' => 'required|numeric',
+            'image_url' => 'required|image:jpeg,png,jpg,gif,svg|max:5120',
+            'target_amount' => 'required|string',
             'category_id' => 'required|numeric'
         ]);
 
@@ -105,12 +107,18 @@ class ApplicationController extends Controller
             return $this->error("Validation failed", 400, $validator->errors()->all());
         }
 
-        $application = Application::findOrFail($id);
         $this->authorize('update', $application);
+
+        $uploadFolder = 'applications';
+        $existing_image_path = $application->image_url;
+        Storage::disk('public')->delete($existing_image_path);
+        $new_image_path = $request->file('image_url')->store($uploadFolder, 'public');
+
+
 
         $application->title = $request->title;
         $application->description = $request->description;
-        $application->image_url = $request->image_url;
+        $application->image_url = $new_image_path;
         $application->target_amount = $request->target_amount;
         $application->category_id = $request->category_id;
 
@@ -133,6 +141,8 @@ class ApplicationController extends Controller
         $application = Application::findOrFail($id);
 
         $this->authorize('delete', $application);
+        
+        Storage::disk('public')->delete($application->image_url);
 
         if($application->delete()){
             return $this->success(
