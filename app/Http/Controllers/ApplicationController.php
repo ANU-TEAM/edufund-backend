@@ -51,13 +51,12 @@ class ApplicationController extends Controller
         $uploadFolder = 'applications';
         $image = $request->file('image_url');
         $image_uploaded_path = $image->store($uploadFolder, 'public');
-        $image_url = Storage::disk('public')->url($image_uploaded_path);
         
 
         $application->user_id = auth()->user()->id;
         $application->title = $request->title;
         $application->description = $request->description;
-        $application->image_url = $image_url;
+        $application->image_url = $image_uploaded_path;
         $application->target_amount = $request->target_amount;
         $application->category_id = $request->category_id;
 
