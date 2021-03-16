@@ -6,6 +6,7 @@ use App\Models\Application;
 use App\Http\Resources\ApplicationResource;
 use App\Traits\ApiResponder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ApplicationController extends Controller
 {
@@ -32,17 +33,34 @@ class ApplicationController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedRequest = $request->validate([
+        $application = new Application;
+        $validator = validator($request->all(), [
             'title' => 'required|string',
             'description' => 'required|string',
-            'image_url' => 'required|string',
-            'target_amount' => 'required|numeric',
+            'image_url' => 'required|image:jpeg,png,jpg,gif,svg|max:5120',
+            'target_amount' => 'required|string',
             'category_id' => 'required|numeric'
         ]);
 
-        $application = Application::create($validatedRequest + [
-            'user_id' => auth()->user()->id
-        ]);
+        if ($validator->fails()) {
+            return $this->error("Validation failed", 400, $validator->errors()->all());
+        }
+
+
+
+        $uploadFolder = 'applications';
+        $image = $request->file('image_url');
+        $image_uploaded_path = $image->store($uploadFolder, 'public');
+        
+
+        $application->user_id = auth()->user()->id;
+        $application->title = $request->title;
+        $application->description = $request->description;
+        $application->image_url = $image_uploaded_path;
+        $application->target_amount = $request->target_amount;
+        $application->category_id = $request->category_id;
+
+        $application->save();
 
         return $this->success(
             new ApplicationResource($application),
