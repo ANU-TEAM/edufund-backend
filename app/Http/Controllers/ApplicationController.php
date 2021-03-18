@@ -62,8 +62,10 @@ class ApplicationController extends Controller
 
         $application->save();
 
+        $newApplication = Application::findOrFail($application->id);
+
         return $this->success(
-            new ApplicationResource($application),
+            new ApplicationResource($newApplication),
             'Application was created successfully'
         );
     }
