@@ -31,7 +31,7 @@ class Application extends Model
 
     public function reject()
     {
-        $this->approved = 0;
+        $this->approved = 2;
         return $this->save();
     }
 }
