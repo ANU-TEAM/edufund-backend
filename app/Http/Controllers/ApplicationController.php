@@ -25,6 +25,17 @@ class ApplicationController extends Controller
         );
     }
 
+
+    public function user()
+    {
+        $user_id = auth()->id();
+        return $this->success(
+            ApplicationResource::collection(Application::where('user_id', $user_id)->get()),
+            'Applications fetched successfully',
+            200
+        );
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -69,6 +80,7 @@ class ApplicationController extends Controller
             'Application was created successfully'
         );
     }
+
 
     /**
      * Display the specified resource.
