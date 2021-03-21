@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\FeedbackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,9 @@ Route::post('/forgot-password', [AuthController::class, 'sendResetLink']);
 Route::get('/categories', [CategoryController::class, 'index']);
 
 Route::get('/applications', [ApplicationController::class, 'index']);
+
+Route::get('/feedbacks', [FeedbackController::class, 'index']);
+Route::post('/feedbacks', [FeedbackController::class, 'store']);
 
 
 Route::get('/applications/{id}', [ApplicationController::class, 'show']);
