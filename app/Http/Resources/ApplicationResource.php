@@ -27,7 +27,8 @@ class ApplicationResource extends JsonResource
             'progress' => round(($this->amount_gained / $this->target_amount), 3),
             'approved' => $this->approved,
             'category' => [
-                'name' => Application::find($this->id)->category->name
+                'id' => Application::find($this->id)->category->id,
+                'name' => Application::find($this->id)->category->name,
             ],
             'user' => [
                 'name' => Application::find($this->id)->user->name,
