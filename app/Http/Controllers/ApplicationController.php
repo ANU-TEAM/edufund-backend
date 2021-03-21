@@ -133,7 +133,8 @@ class ApplicationController extends Controller
         $application->title = $request->title;
         $application->description = $request->description;
         $application->image_url = $new_image_path;
-        $application->target_amount = $request->target_amount;
+        $application->approved = 0;
+        $application->target_amount = floatval($request->target_amount);
         $application->category_id = $request->category_id;
 
         $application->save();
