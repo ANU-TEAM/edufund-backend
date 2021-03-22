@@ -33,7 +33,25 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $feedback = new Feedback;
+        $validator = validator($request->all(), [
+            'rating' => 'required|numeric',
+            'comment' => 'required|string'
+        ]);
+
+        if ($validator->fails()) {
+            return $this->error("Validation failed", 400, $validator->errors()->all());
+        }
+
+        $feedback->rating = $request->rating;
+        $feedback->comment = $request->comment;
+
+        $feedback->save();
+
+        return $this->success(
+            [],
+            'Application was created successfully'
+        );
     }
 
     /**
