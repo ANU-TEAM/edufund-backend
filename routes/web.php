@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Notifications\ApiPasswordResetNotification;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +23,16 @@ Route::get('/', function () {
 //     return (new ApiPasswordResetNotification(43445))->toMail('wwww');
 // });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::group(['middleware' => ['auth']], function () {
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('/dashboard/approve/{id}', [DashboardController::class, 'approve']);
+
+    Route::get('/dashboard/reject/{id}', [DashboardController::class, 'reject']);
+
+});
+
+
 
 require __DIR__.'/auth.php';
