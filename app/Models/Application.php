@@ -34,4 +34,10 @@ class Application extends Model
         $this->approved = 2;
         return $this->save();
     }
+
+    public function pending()
+    {
+        $this->approved = 0;
+        return $this->save();
+    }
 }

@@ -74,8 +74,7 @@
                     <!-- Card -->
                     <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
 
-                                                <div
-                            class="p-3 mr-4 text-red-500 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-500">
+                        <div class="p-3 mr-4 text-red-500 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-500">
 
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor"
                                 viewBox="0 0 20 20">
@@ -153,28 +152,49 @@
                                         </td>
                                         <td class="px-4 py-3">
                                             <div class="flex items-center space-x-4 text-sm">
-                                                <a href="/dashboard/approve/{{ $application->id }}">
-                                                     <button
-                                                    class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                                                    aria-label="Approve">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                        fill="currentColor" class="w-5 h-5" aria-hidden="true">
-                                                        <path
-                                                            d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
-                                                    </svg>
-                                                </button>
-                                                </a>
-                                                <a href="/dashboard/reject/{{ $application->id }}">
-                                                <button
-                                                    class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                                                    aria-label="Reject">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                        fill="currentColor" class="w-5 h-5" aria-hidden="true">
-                                                        <path
-                                                            d="M18 9.5a1.5 1.5 0 11-3 0v-6a1.5 1.5 0 013 0v6zM14 9.667v-5.43a2 2 0 00-1.105-1.79l-.05-.025A4 4 0 0011.055 2H5.64a2 2 0 00-1.962 1.608l-1.2 6A2 2 0 004.44 12H8v4a2 2 0 002 2 1 1 0 001-1v-.667a4 4 0 01.8-2.4l1.4-1.866a4 4 0 00.8-2.4z" />
-                                                    </svg>
-                                                </button>
-                                                </a>
+                                                @if ($application->approved == 2 || $application->approved == 0)
+                                                    <a href="/dashboard/approve/{{ $application->id }}">
+                                                        <button
+                                                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                                                            aria-label="Approve">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                                fill="currentColor" class="w-5 h-5" aria-hidden="true">
+                                                                <path
+                                                                    d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
+                                                            </svg>
+                                                        </button>
+                                                    </a>
+                                                @endif
+
+                                                @if ($application->approved == 1 || $application->approved == 0)
+                                                    <a href="/dashboard/reject/{{ $application->id }}">
+                                                        <button
+                                                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                                                            aria-label="Reject">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                                fill="currentColor" class="w-5 h-5" aria-hidden="true">
+                                                                <path
+                                                                    d="M18 9.5a1.5 1.5 0 11-3 0v-6a1.5 1.5 0 013 0v6zM14 9.667v-5.43a2 2 0 00-1.105-1.79l-.05-.025A4 4 0 0011.055 2H5.64a2 2 0 00-1.962 1.608l-1.2 6A2 2 0 004.44 12H8v4a2 2 0 002 2 1 1 0 001-1v-.667a4 4 0 01.8-2.4l1.4-1.866a4 4 0 00.8-2.4z" />
+                                                            </svg>
+                                                        </button>
+                                                    </a>
+                                                @endif
+
+                                                @if (!$application->approved == 0)
+                                                    <a href="/dashboard/pending/{{ $application->id }}">
+                                                        <button
+                                                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                                                            aria-label="Pending">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"
+                                                                fill="currentColor" viewBox="0 0 20 20">
+                                                                <path fill-rule="evenodd"
+                                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                                                    clip-rule="evenodd" />
+                                                            </svg>
+                                                        </button>
+                                                    </a>
+                                                @endif
+
                                                 <button
                                                     class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                                                     aria-label="Reject">

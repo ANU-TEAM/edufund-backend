@@ -31,6 +31,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/dashboard/reject/{id}', [DashboardController::class, 'reject']);
 
+    Route::get('/dashboard/pending/{id}', [DashboardController::class, 'pending']);
+
 });
 
 

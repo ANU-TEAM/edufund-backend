@@ -44,5 +44,12 @@ class DashboardController extends Controller
         $application->reject();
         return back();
     }
+
+    public function pending(Request $request, $id)
+    {
+        $application = Application::findOrFail($id);
+        $application->pending();
+        return back();
+    }
   
 }
