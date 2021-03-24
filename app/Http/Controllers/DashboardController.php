@@ -31,6 +31,14 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function detail(Request $request, $id)
+    {
+        $application = Application::findOrFail($id);
+        return view('detail', [
+            'application' => $application,
+        ]);
+    }
+
     public function approve(Request $request, $id)
     {
         $application = Application::findOrFail($id);
