@@ -42,7 +42,7 @@ class DashboardController extends Controller
 
     public function feedbacks(Request $request)
     {
-        $feedbacks = Feedback::all();
+        $feedbacks = Feedback::latest()->get();
         $average = $feedbacks->avg('rating');
         return view('feedbacks', [
             'feedbacks' => $feedbacks,

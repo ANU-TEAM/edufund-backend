@@ -24,7 +24,7 @@
                                 Overall Ratings
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                {{ round($average, 2) }}
+                                {{ number_format($average, 2) }}
                             </p>
                         </div>
                     </div>
@@ -39,6 +39,7 @@
                                     class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                                     <th class="px-4 py-3">Comment</th>
                                     <th class="px-4 py-3">Rating</th>
+                                     <th class="px-4 py-3">Date</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
@@ -56,6 +57,12 @@
                                         <td class="px-4 py-3 text-sm">
                                             <p class="font-semibold">
                                                 {{ $feedback->rating }}
+                                            </p>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">
+                                            <p class="font-semibold">
+                                                {{-- {{ $feedback->created_at }} --}}
+                                                {{ date('d-m-Y h:m A', strtotime($feedback->created_at)) }}
                                             </p>
                                         </td>
                                     </tr>
