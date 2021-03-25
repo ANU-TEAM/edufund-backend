@@ -29,6 +29,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/dashboard/detail/{id}', [DashboardController::class, 'detail']);
 
+    Route::get('/dashboard/feedbacks', [DashboardController::class, 'feedbacks'])->name('feedbacks');
+
     Route::get('/dashboard/approve/{id}', [DashboardController::class, 'approve']);
 
     Route::get('/dashboard/reject/{id}', [DashboardController::class, 'reject']);

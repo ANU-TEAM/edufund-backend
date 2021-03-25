@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Application;
+use App\Models\Feedback;
 use App\Models\User;
 
 class DashboardController extends Controller
@@ -36,6 +37,16 @@ class DashboardController extends Controller
         $application = Application::findOrFail($id);
         return view('detail', [
             'application' => $application,
+        ]);
+    }
+
+    public function feedbacks(Request $request)
+    {
+        $feedbacks = Feedback::all();
+        $average = $feedbacks->avg('rating');
+        return view('feedbacks', [
+            'feedbacks' => $feedbacks,
+            'average' => $average
         ]);
     }
 
