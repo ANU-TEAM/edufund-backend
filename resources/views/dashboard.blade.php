@@ -118,7 +118,7 @@
                                                         {{ Str::limit($application->title, 20) }}
                                                     </p>
                                                     <p class="text-xs text-gray-600 dark:text-gray-400">
-                                                        {{ $application->category->name }}
+                                                        {{ ucfirst($application->category->name) }}
                                                     </p>
                                                 </div>
                                             </div>
