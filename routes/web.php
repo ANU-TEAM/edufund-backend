@@ -23,7 +23,7 @@ Route::get('/', function () {
 //     return (new ApiPasswordResetNotification(43445))->toMail('wwww');
 // });
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth', 'verify.admin']], function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

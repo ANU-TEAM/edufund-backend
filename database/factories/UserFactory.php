@@ -23,8 +23,9 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => "Sosu Alfred",
-            'email' => 'sosualfred@gmail.com',
+            'name' => "Edufund Admin",
+            'email' => 'admin@edufund.com',
+            'admin' => 1,
             'password' => \bcrypt('12345678')
         ];    
     }
