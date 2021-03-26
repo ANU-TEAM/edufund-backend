@@ -18,7 +18,7 @@
   <div class="container menu__wrapper">
     <div class="row">
       <div class="menu__logo menu__item">
-        <a href="index.html">
+        <a href="/">
         <svg class="menu__logo-img" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 48 48">
           <path d="M0 0h24v24H0z" fill="none"/>
           <g>
@@ -44,7 +44,7 @@
 <!--Header-->
 <header class="header-home">
   <div class="container background background--right background--header background--mobile"
-       style="background-image: url({{ asset('landing/assets/img/img_background.png') }});">
+       style="background-image: url({{ asset('landing/assets/img/png.png') }});">
     <div class="row">
       <div class="col-12">
         <h2 class="header-home__title">Making Your Dreams Come True</h2>
