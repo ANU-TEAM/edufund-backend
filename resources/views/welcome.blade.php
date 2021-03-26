@@ -9,7 +9,7 @@
   <link href="https://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('landing/assets/css/green.css') }}">
   <title>Edufund</title>
-  <link rel="icon" href="{{ asset('landing/assets/img/Logo_32x32.png') }}" type="image/png">
+  <link rel="icon" href="{{ asset('landing/assets/img/favicon.png') }}" type="image/png">
 </head>
 <body>
 
@@ -19,12 +19,13 @@
     <div class="row">
       <div class="menu__logo menu__item">
         <a href="index.html">
-          <svg class="menu__logo-img" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-            <path data-name="Sigma symbol" class="svg-element"
-                  d="M237.418,8583.56a12.688,12.688,0,0,0,.419-3.37c-0.036-5.24-2.691-9.68-7.024-13.2h-3.878a20.819,20.819,0,0,1,4.478,13.01c0,4.56-2.456,10.2-6.413,11.4a16.779,16.779,0,0,1-2.236.51c-10.005,1.55-14.109-17.54-9.489-23.31,2.569-3.21,6.206-4.08,11.525-4.08h17.935A24.22,24.22,0,0,1,237.418,8583.56Zm-12.145-24.45c-8.571.02-12.338,0.98-16.061,4.84-6.267,6.49-6.462,20.69,4.754,27.72a24.092,24.092,0,1,1,27.3-32.57h-16v0.01Z"
-                  transform="translate(-195 -8544)"/>
-          </svg>
-          <p class="menu__logo-title">EduFund</p>
+        <svg class="menu__logo-img" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 48 48">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <g>
+            <path  d="M 5 13.18 L 5 17.18 L 12 21 L 19 17.18 L 19 13.18 L 12 17 L 5 13.18 Z M 12 3 L 1 9 L 12 15 L 21 10.09 L 21 17 L 23 17 L 23 9 L 12 3 Z" style="fill: rgb(9, 199, 142);"/>
+          </g>
+        </svg>
+        <p class="menu__logo-title">EduFund</p>
         </a>
       </div>
       <div class="menu__item">
