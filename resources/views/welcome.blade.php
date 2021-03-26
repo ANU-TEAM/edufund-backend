@@ -30,7 +30,7 @@
       <div class="menu__item">
         <nav class="menu__right-nav d-l-none">
           <ul>
-            <li><a href="#linkToApp" class="site-btn site-btn--accent">Download EduFund</a></li>
+            <li><a href="{{ asset('landing/assets/edufund.apk') }}" class="site-btn site-btn--accent">Download EduFund</a></li>
           </ul>
         </nav>
       </div>
@@ -53,7 +53,7 @@
           The platform helps students to solicit for financial support from the public.
         </p>
         <div class="header-home__btns header-home__btns-mobile">
-          <a href="#linkToApp" class="site-btn site-btn--accent header-home__btn">Start Using Edufund</a>
+          <a href="{{ asset('landing/assets/edufund.apk') }}" class="site-btn site-btn--accent header-home__btn">Start Using Edufund</a>
           
         </div>
       </div>
@@ -190,7 +190,7 @@
       <div class="col-12">
         <!-- <a href="" class="site-btn site-btn--dark site-btn--download site-btn--center">
           <img alt="" src="landing/assets/img/img_google.png"></a> -->
-          <a href="#linkToApp" class="site-btn site-btn--accent">Download EduFund</a>
+          <a href="{{ asset('landing/assets/edufund.apk') }}" class="site-btn site-btn--accent">Download EduFund</a>
       </div>
     </div>
   </div>
