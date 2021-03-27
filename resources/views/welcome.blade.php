@@ -127,8 +127,8 @@
     <div class="row">
       <div class="col-12">
         <h3 class="section__title">What is EduFund?</h3>
-        <p class="section__description">Meet Sigma. The simple, intuitive and powerful app to manage your work.
-          Explore app of the next generation for free and become a part of community of like-minded members.</p>
+        <p class="section__description">EduFund is a platform helps students to solicit for financial support from individuals and 
+        organizations. The aim of EduFund is to remove the financial barrier preventing students from acheiving their dreams.</p>
       </div>
     </div>
     <hr>
@@ -148,16 +148,16 @@
       <div class="col-4 col-m-12">
         <div class="questions__card card">
           <img alt="" src="{{ asset('landing/assets/img/img_question_1.png') }}" class="questions__icon">
-          <h4 class="questions__title">Who is Sigma for?</h4>
-          <p class="questions__answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-            placerat eros ac finibus congue. Integer consectetur, lorem nec accumsan commodo, sem mauris pharetra
-            arcu, id viverra eros ipsum ac lorem. Suspendisse potenti.</p>
+          <h4 class="questions__title">Is EduFund Free?</h4>
+          <p class="questions__answer">EduFund is 100% free. You do not need to pay any amount to register on the platform.
+            Also, EduFund is free to to download. We do not take any percentage from the money donated to you.
+          </p>
         </div>
       </div>
       <div class="col-4 col-m-12">
         <div class="questions__card card">
           <img alt="" src="{{ asset('landing/assets/img/img_question_2.png') }}" class="questions__icon">
-          <h4 class="questions__title">How Sigma works?</h4>
+          <h4 class="questions__title">What's the catch?</h4>
           <p class="questions__answer">Sed tristique commodo bibendum. Orci varius natoque penatibus et magnis dis
             parturient montes, nascetur ridiculus mus. Cras molestie arcu in mauris euismod, quis faucibus urna
             aliquam.</p>
