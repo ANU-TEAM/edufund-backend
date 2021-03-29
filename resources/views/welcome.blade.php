@@ -157,20 +157,18 @@
       <div class="col-4 col-m-12">
         <div class="questions__card card">
           <img alt="" src="{{ asset('landing/assets/img/img_question_2.png') }}" class="questions__icon">
-          <h4 class="questions__title">What's the catch?</h4>
-          <p class="questions__answer">Sed tristique commodo bibendum. Orci varius natoque penatibus et magnis dis
-            parturient montes, nascetur ridiculus mus. Cras molestie arcu in mauris euismod, quis faucibus urna
-            aliquam.</p>
+          <h4 class="questions__title">Who can apply?</h4>
+          <p class="questions__answer">Students who has genuine reasons that inhibits from furthering thier education.
+          EduFund should be your last resort. If family or friends can support, kindly do not apply.
+          For now, we focus more on supporting Primary, Secondary, and Tertiary students</p>
         </div>
       </div>
       <div class="col-4 col-m-12">
         <div class="questions__card card">
           <img alt="" src="{{ asset('landing/assets/img/img_question_3.png') }}" class="questions__icon">
-          <h4 class="questions__title">In which countries is Sigma available?</h4>
-          <p class="questions__answer">Donec non vestibulum eros, auctor elementum felis. Mauris arcu lectus,
-            vestibulum in aliquet a, interdum in enim. Orci varius natoque penatibus et magnis dis parturient montes,
-            nascetur ridiculus mus. Aenean facilisis enim dui, ut hendrerit ligula lobortis sit amet. Nunc pulvinar
-            risus id lectus posuere, at rutrum dui commodo.</p>
+          <h4 class="questions__title">In which countries is EduFund available?</h4>
+          <p class="questions__answer">EduFund is currently avaiable in Ghana for now. But, anyone across the globe can
+          sponsor any student seeking funding on EduFund. We are looking forward to expanding to various soon.</p>
         </div>
       </div>
     </div>
