@@ -108,12 +108,7 @@
     </div>
     <div class="row video">
       <div class="col-offset-1 col-10 col-t-12 ">
-        <div class="video__video" data-video="_DHPmGeXa-k">
-          <div class="video__play"><img src="{{ asset('landing/assets/img/img_play_btn.png') }}" alt=""></div>
-          <div class="embed-responsive">
-            <div class="embed-responsive-item"></div>
-          </div>
-        </div>
+        <iframe width="853" height="480" src="https://www.youtube.com/embed/Iz7FbG_g1t8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
     <hr>
