@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\ApiResponder;
+use Illuminate\Support\Facades\Password;
+use App\Http\Resources\UserResource;
 
 
 class AuthController extends Controller
@@ -15,46 +17,61 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        $attr = $request->validate([
+        $validatedRequest = $request->validate([
+            'deviceId' => 'required|string',
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|unique:users,email',
             'password' => 'required|string|min:8',
         ]);
 
         $user = User::create([
-            'name' => $attr['name'],
-            'password' => bcrypt($attr['password']),
-            'email' => $attr['email']
+            'name' => $validatedRequest['name'],
+            'password' => bcrypt($validatedRequest['password']),
+            'email' => $validatedRequest['email']
         ]);
 
         return $this->success([
-            'user' => $user,
-            'token' => $user->createToken('API Token')->plainTextToken
+            'user' => new UserResource($user),
+            'token' => $user->createToken($validatedRequest['deviceId'])->plainTextToken
         ]);
     }
 
     public function login(Request $request)
     {
-        $attr = $request->validate([
+        $validatedRequest = $request->validate([
+            'deviceId' => 'required|string',
             'email' => 'required|string|email|',
             'password' => 'required|string|min:8'
         ]);
 
-        if (!Auth::attempt($attr)) {
+        $userCredentials = [
+            'email' => $request->email,
+            'password' => $request->password
+        ];
+
+        if (!Auth::attempt($userCredentials)) {
             return $this->error('Credentials not match', 401);
         }
 
         return $this->success([
-            'token' => auth()->user()->createToken('API Token')->plainTextToken
+            'user' => new UserResource(auth()->user()),
+            'token' => auth()->user()->createToken($validatedRequest['deviceId'])->plainTextToken
         ]);
     }
 
-    public function logout()
+    public function sendResetLink(Request $request)
     {
-        auth()->user()->tokens()->delete();
+        $request->validate([
+            'email' => 'required|email',
+        ]);
+        
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
 
-        return [
-            'message' => 'Tokens Revoked'
-        ];
+        return $status == Password::RESET_LINK_SENT
+                    ? $this->success([], 'Password reset link sent')
+                    : $this->error('Password reset request failed', 401);
     }
+
 }
