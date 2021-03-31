@@ -41,8 +41,11 @@ Use the instructions below to run the project locally:
     DB_PASSWORD=yourpassword
     ```
 8. Setup your mail configuration to ensure that emails can be sent to users. [Gmail Guide](https://www.itsolutionstuff.com/post/laravel-8-mail-laravel-8-send-email-tutorialexample.html), [MailTrap Guide](https://www.itsolutionstuff.com/post/how-to-send-mail-in-laravel-8-using-mailtrapexample.html)
+
 9.Run ```php artisan migrate:fresh --seed``` To generate your tables, populate your database with categories, and also create a new admin user with the following credentials (email```admin@edufund.com```, password ```12345678```)
+
 10. You can now run ```php artisan serve``` This will start the application on ```http://localhost:8001```. NB: If port ```8001``` is taken another port like ```8002``` will be used.
+
 11. You can also run ```php artisan serve --host <ip-address> --port <portnumber>``` to ensure the backend is accessible via your Local Area Network(LAN)
 
 NB: Change the ```APP_URL``` variable in the ```.env``` file to match your ip-address on which the backend is running. Use this same ip-address as the URL and Port in the [endpoints.dart](https://github.com/ANU-TEAM/edufund-mobileapp/blob/develop/lib/utils/endpoints.dart) of the [mobile app](https://github.com/ANU-TEAM/edufund-mobileapp). Doing this will enable images to be displayed on the mobile app.
