@@ -3,9 +3,9 @@
   <div class="content-header bg-white-5">
     <!-- Logo -->
     <a class="font-w600 text-dual" href="index.html">
-      <i class="fa fa-circle-notch text-primary"></i>
+      <i class="fa fa-graduation-cap text-success"></i>
       <span class="smini-hide">
-        <span class="font-w700 font-size-h5">ne</span>
+        <span class="font-w700 font-size-h5">EduFund</span>
       </span>
     </a>
     <!-- END Logo -->
@@ -36,7 +36,7 @@
         </a>
       </li>
 
-      <li class="nav-main-heading">BLOG</li>
+      <li class="nav-main-heading">APPLICATIONS</li>
 
       <li
         class="nav-main-item {{ request()->is('admin/posts/*') ? ' open' : '' }}">
