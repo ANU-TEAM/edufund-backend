@@ -26,7 +26,7 @@
             <div class="block-content block-content-full">
               <div class="font-size-sm font-w600 text-uppercase text-muted">Approved({{ $approved }})</div>
               <div class="font-size-h2 font-w400 text-dark">
-                {{ ($approved / $totalApplications) * 100 }}%
+                {{ round(($approved / $totalApplications) * 100) }}%
               </div>
             </div>
           </a>
@@ -37,7 +37,7 @@
             <div class="block-content block-content-full">
               <div class="font-size-sm font-w600 text-uppercase text-muted">Pending({{ $pending }})</div>
               <div class="font-size-h2 font-w400 text-dark">
-                 {{ ($pending / $totalApplications) * 100 }}%
+                 {{ round(($pending / $totalApplications) * 100) }}%
               </div>
             </div>
           </a>
@@ -48,7 +48,7 @@
             <div class="block-content block-content-full">
               <div class="font-size-sm font-w600 text-uppercase text-muted">Rejected({{ $rejected }})</div>
               <div class="font-size-h2 font-w400 text-dark">
-                 {{ ($rejected / $totalApplications) * 100 }}%
+                 {{ round(($rejected / $totalApplications) * 100) }}%
               </div>
             </div>
           </a>
