@@ -65,7 +65,7 @@
               <h3 class="block-title">Latest Applications</h3>
               <div class="block-options">
                 <span class="badge btn-secondary">
-                  {{ $latest_applications->count() }}
+                  {{ $latest_pending_applications->count() }}
                 </span>
               </div>
             </div>
@@ -81,7 +81,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($latest_applications as $application)
+                  @foreach ($latest_pending_applications as $application)
                     <tr>
                       <td>
                         <span class="font-w600">{{ $loop->index + 1}}</span>
