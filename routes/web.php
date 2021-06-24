@@ -38,6 +38,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verify.admin']], fu
 
     Route::get('/pending/{id}', [DashboardController::class, 'pending'])->name('pending');
 
+    Route::get('/sponsored/{id}', [DashboardController::class, 'sponsored'])->name('sponsored');
+
 
     // Applications Routes
     Route::get('/applications/all', [DashboardApplicationController::class, 'index'])

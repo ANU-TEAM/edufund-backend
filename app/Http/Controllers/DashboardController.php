@@ -74,5 +74,12 @@ class DashboardController extends Controller
         $application->pending();
         return back();
     }
+
+    public function sponsored(Request $request, $id)
+    {
+        $application = Application::findOrFail($id);
+        $application->sponsored();
+        return back();
+    }
   
 }
