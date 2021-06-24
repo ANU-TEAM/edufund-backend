@@ -62,7 +62,7 @@
         <div class="col-lg-12">
           <div class="block block-mode-loading-oneui">
             <div class="block-header block-header-default">
-              <h3 class="block-title">Latest Orders</h3>
+              <h3 class="block-title">Pending Applications</h3>
             </div>
             <div class="block-content block-content-full">
               <table class="table table-responsive-sm table-border table-striped table-hover table-borderless table-vcenter font-size-sm mb-0">
@@ -76,7 +76,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($applications as $application)
+                  @foreach ($latest_applications as $application)
                     <tr>
                       <td>
                         <span class="font-w600">{{ $loop->index + 1}}</span>
