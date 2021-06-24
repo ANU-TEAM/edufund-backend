@@ -16,12 +16,15 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $latest_applications = Application::latest()->limit(5)->get();
         $applications = Application::all();
         $totalApplications = $applications->count();
         $pending = $applications->where('approved', '=', 0)->count();
         $approved = $applications->where('approved', '=', 1)->count();
         $rejected = $applications->where('approved', '=', 2)->count();
+        
         return view('admin.dashboard', [
+            'latest_applications' => $latest_applications,
             'applications' => $applications,
             'totalApplications' => $totalApplications,
             'pending' => $pending,

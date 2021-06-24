@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Notifications\ApiPasswordResetNotification;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardApplicationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,23 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verify.admin']], fu
     Route::get('/reject/{id}', [DashboardController::class, 'reject'])->name('reject');
 
     Route::get('/pending/{id}', [DashboardController::class, 'pending'])->name('pending');
+
+
+    // Applications Routes
+    Route::get('/applications/all', [DashboardApplicationController::class, 'index'])
+        ->name('all-applications');
+    
+    Route::get('/applications/approved', [DashboardApplicationController::class, 'approved'])
+        ->name('approved-applications');
+    
+    Route::get('/applications/pending', [DashboardApplicationController::class, 'pending'])
+        ->name('pending-applications');
+
+    Route::get('/applications/rejected', [DashboardApplicationController::class, 'rejected'])
+        ->name('rejected-applications');
+
+    Route::get('/applications/sponsored', [DashboardApplicationController::class, 'sponsored'])
+        ->name('sponsored-applications');
 
 });
 

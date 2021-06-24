@@ -2,10 +2,10 @@
   <!-- Side Header -->
   <div class="content-header bg-white-5">
     <!-- Logo -->
-    <a class="font-w600 text-dual" href="index.html">
-      <i class="fa fa-circle-notch text-primary"></i>
+    <a class="font-w600 text-dual" href="/">
+      <i class="fa fa-graduation-cap text-success"></i>
       <span class="smini-hide">
-        <span class="font-w700 font-size-h5">ne</span>
+        <span class="font-w700 font-size-h5">EduFund</span>
       </span>
     </a>
     <!-- END Logo -->
@@ -30,85 +30,50 @@
     <ul class="nav-main">
       <li class="nav-main-item">
         <a class="nav-main-link {{ Request::is('admin/dashboard', 'admin/dashboard/*') ? 'active' : '' }}"
-          href="#">
+          href="{{ route('dashboard') }}">
           <i class="nav-main-link-icon si si-speedometer"></i>
           <span class="nav-main-link-name">Dashboard</span>
         </a>
       </li>
 
-      <li class="nav-main-heading">BLOG</li>
+      <li class="nav-main-heading">QUICK VIEW</li>
 
       <li
-        class="nav-main-item {{ request()->is('admin/posts/*') ? ' open' : '' }}">
+        class="nav-main-item {{ request()->is('admin/applications/*') ? ' open' : '' }}">
         <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false"
           href="#">
           <i class="nav-main-link-icon si si-note"></i>
-          <span class="nav-main-link-name">Posts</span>
+          <span class="nav-main-link-name">Applications</span>
         </a>
         <ul class="nav-main-submenu">
           <li class="nav-main-item">
-            <a class="nav-main-link {{ request()->is('admin/posts/all') ? ' active' : '' }} {{ request()->is('admin/posts/edit/*') ? ' active' : '' }}"
-              href="#">
-              <span class="nav-main-link-name">All Posts</span>
+            <a class="nav-main-link {{ request()->is('admin/applications/all') ? ' active' : '' }} {{ request()->is('admin/posts/edit/*') ? ' active' : '' }}"
+              href="{{ route('all-applications') }}">
+              <span class="nav-main-link-name">All Applications</span>
             </a>
           </li>
           <li class="nav-main-item">
-            <a class="nav-main-link {{ request()->is('admin/posts/create') ? ' active' : '' }}"
-              href="#">
-              <span class="nav-main-link-name">New Post</span>
+            <a class="nav-main-link {{ request()->is('admin/applications/approved') ? ' active' : '' }} {{ request()->is('admin/posts/edit/*') ? ' active' : '' }}"
+              href="{{ route('approved-applications') }}">
+              <span class="nav-main-link-name">Approved</span>
             </a>
           </li>
           <li class="nav-main-item">
-            <a class="nav-main-link {{ request()->is('admin/posts/trashed') ? ' active' : '' }}"
-              href="#">
-              <span class="nav-main-link-name">Trashed Posts</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-
-
-      <li
-        class="nav-main-item {{ request()->is('admin/category/*') ? ' open' : '' }}">
-        <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false"
-          href="#">
-          <i class="nav-main-link-icon si si-grid"></i>
-          <span class="nav-main-link-name">Categories</span>
-        </a>
-        <ul class="nav-main-submenu">
-          <li class="nav-main-item">
-            <a class="nav-main-link {{ request()->is('admin/category/all') ? ' active' : '' }} {{ request()->is('admin/category/edit/*') ? ' active' : '' }}"
-              href="#">
-              <span class="nav-main-link-name">All Categories</span>
+            <a class="nav-main-link {{ request()->is('admin/applications/pending') ? ' active' : '' }} {{ request()->is('admin/posts/edit/*') ? ' active' : '' }}"
+              href="{{ route('pending-applications') }}">
+              <span class="nav-main-link-name">Pending</span>
             </a>
           </li>
           <li class="nav-main-item">
-            <a class="nav-main-link  {{ request()->is('admin/category/create') ? ' active' : '' }}"
-              href="#">
-              <span class="nav-main-link-name">New Category</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-
-      <li
-        class="nav-main-item {{ request()->is('admin/tag/*') ? ' open' : '' }}">
-        <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false"
-          href="#">
-          <i class="nav-main-link-icon si si-tag"></i>
-          <span class="nav-main-link-name">Tags</span>
-        </a>
-        <ul class="nav-main-submenu">
-          <li class="nav-main-item">
-            <a class="nav-main-link {{ request()->is('admin/tag/all') ? ' active' : '' }} {{ request()->is('admin/tag/edit/*') ? ' active' : '' }}"
-              href="#">
-              <span class="nav-main-link-name">All Tags</span>
+            <a class="nav-main-link {{ request()->is('admin/applications/rejected') ? ' active' : '' }} {{ request()->is('admin/posts/edit/*') ? ' active' : '' }}"
+              href="{{ route('rejected-applications') }}">
+              <span class="nav-main-link-name">Rejected</span>
             </a>
           </li>
           <li class="nav-main-item">
-            <a class="nav-main-link  {{ request()->is('admin/tag/create') ? ' active' : '' }}"
-              href="#">
-              <span class="nav-main-link-name">New Tag</span>
+            <a class="nav-main-link {{ request()->is('admin/applications/sponsored') ? ' active' : '' }} {{ request()->is('admin/posts/edit/*') ? ' active' : '' }}"
+              href="{{ route('sponsored-applications') }}">
+              <span class="nav-main-link-name">Sponsored</span>
             </a>
           </li>
         </ul>
@@ -140,23 +105,6 @@
             </a>
           </li>
         </ul>
-      </li>
-      @endif
-
-      <li class="nav-main-item">
-        <a class="nav-main-link  {{ request()->is('admin/user/profile') ? ' active' : '' }}"
-          href="#">
-          <span class="nav-main-link-name">My Profile</span>
-        </a>
-      </li>
-
-
-      @if (Auth::user()->admin)
-      <li class="nav-main-item">
-        <a class="nav-main-link  {{ request()->is('admin/settings') ? ' active' : '' }}"
-          href="#">
-          <span class="nav-main-link-name">Site Settings</span>
-        </a>
       </li>
       @endif
 

@@ -9,6 +9,7 @@
 
   <title>Edufund</title>
 
+  <link rel="icon" href="{{ asset('landing/assets/img/favicon.png') }}" type="image/png">
   <!-- Stylesheets -->
   <!-- Fonts and OneUI framework -->
   <link rel="stylesheet"
