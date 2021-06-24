@@ -153,7 +153,7 @@
                                         <td class="px-4 py-3">
                                             <div class="flex items-center space-x-4 text-sm">
                                                 @if ($application->approved == 2 || $application->approved == 0)
-                                                    <a href="/dashboard/approve/{{ $application->id }}">
+                                                    <a href="{{ route('approve', ['id' => $application->id]) }}">
                                                         <button
                                                             class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                                                             aria-label="Approve">
@@ -167,7 +167,7 @@
                                                 @endif
 
                                                 @if ($application->approved == 1 || $application->approved == 0)
-                                                    <a href="/dashboard/reject/{{ $application->id }}">
+                                                    <a href="{{ route('reject', ['id' => $application->id]) }}">
                                                         <button
                                                             class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                                                             aria-label="Reject">
@@ -181,7 +181,7 @@
                                                 @endif
 
                                                 @if (!$application->approved == 0)
-                                                    <a href="/dashboard/pending/{{ $application->id }}">
+                                                    <a href="{{ route('pending', ['id' => $application->id]) }}">
                                                         <button
                                                             class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                                                             aria-label="Pending">
@@ -194,7 +194,7 @@
                                                         </button>
                                                     </a>
                                                 @endif
-                                                <a href="/dashboard/detail/{{ $application->id }}">
+                                                <a href="{{ route('detail', ['id' => $application->id]) }}">
                                                 <button
                                                     class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                                                     aria-label="Reject">

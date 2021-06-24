@@ -23,19 +23,19 @@ Route::get('/', function () {
 //     return (new ApiPasswordResetNotification(43445))->toMail('wwww');
 // });
 
-Route::group(['middleware' => ['auth', 'verify.admin']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verify.admin']], function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::get('/dashboard/detail/{id}', [DashboardController::class, 'detail']);
+    Route::get('/detail/{id}', [DashboardController::class, 'detail'])->name('detail');
 
-    Route::get('/dashboard/feedbacks', [DashboardController::class, 'feedbacks'])->name('feedbacks');
+    Route::get('/feedbacks', [DashboardController::class, 'feedbacks'])->name('feedbacks');
 
-    Route::get('/dashboard/approve/{id}', [DashboardController::class, 'approve']);
+    Route::get('/approve/{id}', [DashboardController::class, 'approve'])->name('approve');
 
-    Route::get('/dashboard/reject/{id}', [DashboardController::class, 'reject']);
+    Route::get('/reject/{id}', [DashboardController::class, 'reject'])->name('reject');
 
-    Route::get('/dashboard/pending/{id}', [DashboardController::class, 'pending']);
+    Route::get('/pending/{id}', [DashboardController::class, 'pending'])->name('pending');
 
 });
 
