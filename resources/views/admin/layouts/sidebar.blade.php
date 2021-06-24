@@ -81,27 +81,21 @@
 
 
       @if (Auth::user()->admin)
-      <li class="nav-main-heading">MANAGE USERS</li>
+      <li class="nav-main-heading">CUSTOMER CARE</li>
 
 
       <li
-        class="nav-main-item {{ request()->is('admin/user/*') ? ' open' : '' }}">
+        class="nav-main-item {{ request()->is('admin/feedbacks/*') ? ' open' : '' }}">
         <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false"
           href="#">
           <i class="nav-main-link-icon si si-grid"></i>
-          <span class="nav-main-link-name">Users</span>
+          <span class="nav-main-link-name">Feedback</span>
         </a>
         <ul class="nav-main-submenu">
           <li class="nav-main-item">
-            <a class="nav-main-link {{ request()->is('admin/user/all') ? ' active' : '' }} {{ request()->is('admin/user/edit/*') ? ' active' : '' }}"
-              href="#">
-              <span class="nav-main-link-name">All Users</span>
-            </a>
-          </li>
-          <li class="nav-main-item">
-            <a class="nav-main-link  {{ request()->is('admin/user/create') ? ' active' : '' }}"
-              href="#">
-              <span class="nav-main-link-name">New User</span>
+            <a class="nav-main-link {{ request()->is('admin/feedbacks') ? ' active' : '' }} {{ request()->is('admin/user/edit/*') ? ' active' : '' }}"
+              href="{{ route('feedbacks') }}">
+              <span class="nav-main-link-name">Comments</span>
             </a>
           </li>
         </ul>
