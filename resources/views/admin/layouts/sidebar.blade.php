@@ -36,7 +36,7 @@
         </a>
       </li>
 
-      <li class="nav-main-heading">QUICK VIEW</li>
+      <li class="nav-main-heading">OVERVIEW</li>
 
       <li
         class="nav-main-item {{ request()->is('admin/applications/*') ? ' open' : '' }}">
@@ -79,27 +79,44 @@
         </ul>
       </li>
 
-
-      @if (Auth::user()->admin)
-      <li class="nav-main-heading">CUSTOMER CARE</li>
-
-
-      <li
-        class="nav-main-item {{ request()->is('admin/feedbacks/*') ? ' open' : '' }}">
+            <li
+        class="nav-main-item {{ request()->is('admin/applications/*') ? ' open' : '' }}">
         <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false"
           href="#">
-          <i class="nav-main-link-icon si si-grid"></i>
-          <span class="nav-main-link-name">Feedback</span>
+          <i class="nav-main-link-icon si si-graph"></i>
+          <span class="nav-main-link-name">Quick Stats</span>
         </a>
         <ul class="nav-main-submenu">
           <li class="nav-main-item">
-            <a class="nav-main-link {{ request()->is('admin/feedbacks') ? ' active' : '' }} {{ request()->is('admin/user/edit/*') ? ' active' : '' }}"
-              href="{{ route('feedbacks') }}">
-              <span class="nav-main-link-name">Comments</span>
+            <a class="nav-main-link {{ request()->is('admin/applications/all') ? ' active' : '' }} {{ request()->is('admin/posts/edit/*') ? ' active' : '' }}"
+              href="{{ route('all-applications') }}">
+              <span class="nav-main-link-name">Progress</span>
             </a>
           </li>
         </ul>
       </li>
+
+
+      @if (Auth::user()->admin)
+        <li class="nav-main-heading">CUSTOMER CARE</li>
+
+
+        <li
+          class="nav-main-item {{ request()->is('admin/feedbacks/*') ? ' open' : '' }}">
+          <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false"
+            href="#">
+            <i class="nav-main-link-icon si si-grid"></i>
+            <span class="nav-main-link-name">Feedback</span>
+          </a>
+          <ul class="nav-main-submenu">
+            <li class="nav-main-item">
+              <a class="nav-main-link {{ request()->is('admin/feedbacks') ? ' active' : '' }} {{ request()->is('admin/user/edit/*') ? ' active' : '' }}"
+                href="{{ route('feedbacks') }}">
+                <span class="nav-main-link-name">Comments</span>
+              </a>
+            </li>
+          </ul>
+        </li>
       @endif
 
     </ul>

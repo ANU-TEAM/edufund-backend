@@ -21,6 +21,8 @@
                             <span class="font-w600 text-info">Pending</span>
                         @elseif ($application->approved === 1)
                             <span class="font-w600 text-success">Approved</span>
+                        @elseif ($application->approved === 3)
+                            <span class="font-w600 text-secondary">Sponsored</span>
                         @else
                             <span class="font-w600 text-danger">Rejected</span>
                         @endif
@@ -61,7 +63,7 @@
                                 <div class="col-12">
                                     <p class="h5 text-muted">Progress</p>
                                     <div class="progress push">
-                                        <div class="progress-bar progress-bar-striped rounded bg-success" role="progressbar" 
+                                        <div class="progress-bar rounded bg-success" role="progressbar" 
                                         style="width: {{ round(($application->amount_gained / $application->target_amount) * 100) }}%;" 
                                         aria-valuenow="{{ round(($application->amount_gained / $application->target_amount) * 100) }}" 
                                         aria-valuemin="0" aria-valuemax="100">
@@ -100,12 +102,14 @@
                                             </div>
                                         @endif
 
-                                        <div class="mr-2 mb-2">
-                                            <a href="{{ route('pending', ['id' => $application->id]) }}"
-                                                type="button" class="btn btn-outline-primary">
-                                                <i class="fa fa-fw fa-gift mr-1"></i> Sponsored
-                                            </a>
-                                        </div>
+                                        @if (!($application->approved == 3) && $application->approved == 1)
+                                            <div class="mr-2 mb-2">
+                                                <a href="{{ route('sponsored', ['id' => $application->id]) }}"
+                                                    type="button" class="btn btn-outline-primary">
+                                                    <i class="fa fa-fw fa-gift mr-1"></i> Sponsored
+                                                </a>
+                                            </div>
+                                        @endif
                                 </div>
                             </div>
                         </div>

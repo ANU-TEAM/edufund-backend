@@ -51,8 +51,10 @@
                             <span class="font-w600 text-info">Pending</span>
                         @elseif ($application->approved === 1)
                             <span class="font-w600 text-success">Approved</span>
-                        @else
+                        @elseif ($application->approved === 2)
                             <span class="font-w600 text-danger">Rejected</span>
+                        @elseif ($application->approved === 3)
+                            <span class="font-w600 text-secondary">Sponsored</span>
                         @endif
                       </td>
                       

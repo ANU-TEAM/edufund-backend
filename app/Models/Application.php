@@ -22,6 +22,12 @@ class Application extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
+        public function pending()
+        {
+            $this->approved = 0;
+            return $this->save();
+        }
 
     public function approve()
     {
@@ -35,9 +41,9 @@ class Application extends Model
         return $this->save();
     }
 
-    public function pending()
+    public function sponsored()
     {
-        $this->approved = 0;
+        $this->approved = 3;
         return $this->save();
     }
 }
