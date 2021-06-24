@@ -37,8 +37,10 @@ class DashboardController extends Controller
     public function detail(Request $request, $id)
     {
         $application = Application::findOrFail($id);
-        return view('detail', [
+        $user = User::findOrFail($application->user_id);
+        return view('admin.applications.show', [
             'application' => $application,
+            'user' => $user,
         ]);
     }
 
