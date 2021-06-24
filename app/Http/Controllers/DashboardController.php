@@ -17,15 +17,13 @@ class DashboardController extends Controller
     public function index()
     {
         $applications = Application::all();
-        $users = User::count();
         $totalApplications = $applications->count();
         $pending = $applications->where('approved', '=', 0)->count();
         $approved = $applications->where('approved', '=', 1)->count();
         $rejected = $applications->where('approved', '=', 2)->count();
-        return view('dashboard', [
+        return view('admin.dashboard', [
             'applications' => $applications,
             'totalApplications' => $totalApplications,
-            'users' => $users,
             'pending' => $pending,
             'approved' => $approved,
             'rejected' => $rejected
