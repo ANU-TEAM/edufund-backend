@@ -11,7 +11,7 @@
         @if (Auth::user()->admin)
         <div class="col-6 col-md-3 col-lg-6 col-xl-3">
           <a class="block block-rounded block-link-pop border-left border-info border-4x"
-            href="#">
+            href="{{ route('all-applications') }}">
             <div class="block-content block-content-full">
               <div class="font-size-sm font-w600 text-uppercase text-muted">Applications</div>
               <div class="font-size-h2 font-w400 text-dark">{{ $totalApplications }}</div>
@@ -22,7 +22,7 @@
 
         <div class="col-6 col-md-3 col-lg-6 col-xl-3">
           <a class="block block-rounded block-link-pop border-left border-success border-4x"
-            href="#">
+            href="{{ route('approved-applications') }}">
             <div class="block-content block-content-full">
               <div class="font-size-sm font-w600 text-uppercase text-muted">Approved({{ $approved }})</div>
               <div class="font-size-h2 font-w400 text-dark">
@@ -33,7 +33,7 @@
         </div>
         <div class="col-6 col-md-3 col-lg-6 col-xl-3">
           <a class="block block-rounded block-link-pop border-left border-primary border-4x"
-            href="#">
+            href="{{ route('pending-applications') }}">
             <div class="block-content block-content-full">
               <div class="font-size-sm font-w600 text-uppercase text-muted">Pending({{ $pending }})</div>
               <div class="font-size-h2 font-w400 text-dark">
@@ -44,7 +44,7 @@
         </div>
         <div class="col-6 col-md-3 col-lg-6 col-xl-3">
           <a class="block block-rounded block-link-pop border-left border-danger border-4x"
-            href="#">
+            href="{{ route('rejected-applications') }}">
             <div class="block-content block-content-full">
               <div class="font-size-sm font-w600 text-uppercase text-muted">Rejected({{ $rejected }})</div>
               <div class="font-size-h2 font-w400 text-dark">
