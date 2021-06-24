@@ -48,6 +48,15 @@ class DashboardApplicationController extends Controller
         ]);
     }
 
+    public function sponsored()
+    {   
+        $applications = Application::where('approved', '=', 3)->latest()->get();
+
+        return view('admin.applications.sponsored', [
+            'sponsored_applications' => $applications
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

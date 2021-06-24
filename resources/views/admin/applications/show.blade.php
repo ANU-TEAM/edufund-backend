@@ -63,7 +63,7 @@
                                 <div class="col-12">
                                     <p class="h5 text-muted">Progress</p>
                                     <div class="progress push">
-                                        <div class="progress-bar progress-bar-striped rounded bg-success" role="progressbar" 
+                                        <div class="progress-bar rounded bg-success" role="progressbar" 
                                         style="width: {{ round(($application->amount_gained / $application->target_amount) * 100) }}%;" 
                                         aria-valuenow="{{ round(($application->amount_gained / $application->target_amount) * 100) }}" 
                                         aria-valuemin="0" aria-valuemax="100">
