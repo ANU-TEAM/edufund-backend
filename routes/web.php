@@ -27,6 +27,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verify.admin']], fu
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+    Route::get('/dashboard2', function () {
+        return view('admin.dashboard');
+    });
+
     Route::get('/detail/{id}', [DashboardController::class, 'detail'])->name('detail');
 
     Route::get('/feedbacks', [DashboardController::class, 'feedbacks'])->name('feedbacks');
