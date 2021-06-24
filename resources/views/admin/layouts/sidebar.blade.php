@@ -79,7 +79,7 @@
         </ul>
       </li>
 
-            <li
+      <li
         class="nav-main-item {{ request()->is('admin/applications/*') ? ' open' : '' }}">
         <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false"
           href="#">
@@ -105,12 +105,12 @@
           class="nav-main-item {{ request()->is('admin/feedbacks/*') ? ' open' : '' }}">
           <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false"
             href="#">
-            <i class="nav-main-link-icon si si-grid"></i>
+            <i class="nav-main-link-icon si si-bubbles"></i>
             <span class="nav-main-link-name">Feedback</span>
           </a>
           <ul class="nav-main-submenu">
             <li class="nav-main-item">
-              <a class="nav-main-link {{ request()->is('admin/feedbacks') ? ' active' : '' }} {{ request()->is('admin/user/edit/*') ? ' active' : '' }}"
+              <a class="nav-main-link {{ request()->is('admin/feedbacks/comments') ? ' active' : '' }} {{ request()->is('admin/user/edit/*') ? ' active' : '' }}"
                 href="{{ route('feedbacks') }}">
                 <span class="nav-main-link-name">Comments</span>
               </a>

@@ -30,7 +30,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verify.admin']], fu
 
     Route::get('/detail/{id}', [DashboardController::class, 'detail'])->name('detail');
 
-    Route::get('/feedbacks', [DashboardController::class, 'feedbacks'])->name('feedbacks');
+    Route::get('/feedbacks/comments', [DashboardController::class, 'feedbacks'])->name('feedbacks');
 
     Route::get('/approve/{id}', [DashboardController::class, 'approve'])->name('approve');
 
