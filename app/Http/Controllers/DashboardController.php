@@ -46,7 +46,7 @@ class DashboardController extends Controller
     {
         $feedbacks = Feedback::latest()->get();
         $average = $feedbacks->avg('rating');
-        return view('feedbacks', [
+        return view('admin.feedbacks.index', [
             'feedbacks' => $feedbacks,
             'average' => $average
         ]);
