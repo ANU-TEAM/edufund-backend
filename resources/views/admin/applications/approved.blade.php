@@ -6,55 +6,6 @@
 
     <!-- Page Content -->
     <div class="content content-narrow">
-      <!-- Stats -->
-      <div class="row">
-        @if (Auth::user()->admin)
-        <div class="col-6 col-md-3 col-lg-6 col-xl-3">
-          <a class="block block-rounded block-link-pop border-left border-info border-4x"
-            href="#">
-            <div class="block-content block-content-full">
-              <div class="font-size-sm font-w600 text-uppercase text-muted">Applications</div>
-              <div class="font-size-h2 font-w400 text-dark">{{ $totalApplications }}</div>
-            </div>
-          </a>
-        </div>
-        @endif
-
-        <div class="col-6 col-md-3 col-lg-6 col-xl-3">
-          <a class="block block-rounded block-link-pop border-left border-success border-4x"
-            href="#">
-            <div class="block-content block-content-full">
-              <div class="font-size-sm font-w600 text-uppercase text-muted">Approved({{ $approved }})</div>
-              <div class="font-size-h2 font-w400 text-dark">
-                {{ round(($approved / $totalApplications) * 100) }}%
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-6 col-md-3 col-lg-6 col-xl-3">
-          <a class="block block-rounded block-link-pop border-left border-primary border-4x"
-            href="#">
-            <div class="block-content block-content-full">
-              <div class="font-size-sm font-w600 text-uppercase text-muted">Pending({{ $pending }})</div>
-              <div class="font-size-h2 font-w400 text-dark">
-                 {{ round(($pending / $totalApplications) * 100) }}%
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-6 col-md-3 col-lg-6 col-xl-3">
-          <a class="block block-rounded block-link-pop border-left border-danger border-4x"
-            href="#">
-            <div class="block-content block-content-full">
-              <div class="font-size-sm font-w600 text-uppercase text-muted">Rejected({{ $rejected }})</div>
-              <div class="font-size-h2 font-w400 text-dark">
-                 {{ round(($rejected / $totalApplications) * 100) }}%
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-      <!-- END Stats -->
 
       <!-- List of Applicants -->
       <div class="row row-deck">
@@ -62,10 +13,10 @@
         <div class="col-lg-12">
           <div class="block block-mode-loading-oneui">
             <div class="block-header block-header-default">
-              <h3 class="block-title">Latest Applications</h3>
+              <h3 class="block-title">Approved Applications</h3>
               <div class="block-options">
                 <span class="badge btn-secondary">
-                  {{ $latest_applications->count() }}
+                  {{ $approved_applications->count() }}
                 </span>
               </div>
             </div>
@@ -81,7 +32,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($latest_applications as $application)
+                  @foreach ($approved_applications as $application)
                     <tr>
                       <td>
                         <span class="font-w600">{{ $loop->index + 1}}</span>
