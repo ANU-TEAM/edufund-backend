@@ -30,6 +30,11 @@ class ApplicationResource extends JsonResource
                 'id' => Application::find($this->id)->category->id,
                 'name' => Application::find($this->id)->category->name,
             ],
+            'school' => [
+                'id' => Application::find($this->id)->school->id,
+                'abbr' => Application::find($this->id)->school->abbr,
+                'name' => Application::find($this->id)->school->name,
+            ],
             'user' => [
                 'name' => Application::find($this->id)->user->name,
                 'email' => Application::find($this->id)->user->email
