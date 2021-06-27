@@ -109,9 +109,19 @@ class SchoolController extends Controller
             'abbr' => 'required|string',
             'name' => 'required|string|min:10',
         ]);
+        
+        if ((School::where('abbr', $request->abbr)->exists()) and
+            ($request->abbr != $school->abbr)) {
 
-        if (School::where('name', $request->name)->exists()) {
+            $request->session()->flash('info', 'A School with the abbreviation "'.$request->abbr.'" already exists.');
+            $request->session()->flash('title', 'School');
 
+            return  redirect()->back();
+
+        }
+        
+        if ((School::where('name', $request->name)->exists()) and
+            ($request->name != $school->name)) {
 
             $request->session()->flash('info', '"'.$request->name.'" already exists.');
             $request->session()->flash('title', 'School');
@@ -120,15 +130,6 @@ class SchoolController extends Controller
 
         }
 
-        if (School::where('abbr', $request->abbr)->exists()) {
-
-
-            $request->session()->flash('info', 'A School with the abbreviation "'.$request->abbr.'" already exists.');
-            $request->session()->flash('title', 'School');
-
-            return  redirect()->back();
-
-        }
 
         $school->update([
             'name' => $request->name,
@@ -150,10 +151,15 @@ class SchoolController extends Controller
      */
     public function destroy(School $school)
     {
-        $school->delete();
+        if($school->applications->count() === 0){
+            $school->delete();
 
-        session()->flash('success', ''.$school->abbr.' has been successfully deleted.');
-        session()->flash('title', 'School');
+            session()->flash('success', ''.$school->abbr.' has been successfully deleted.');
+            session()->flash('title', 'School');
+        } else{
+            session()->flash('info', ''.$school->abbr.' has applications associated with it.');
+            session()->flash('title', 'School');
+        }
 
         return  redirect()->route('schools.index');
     }
