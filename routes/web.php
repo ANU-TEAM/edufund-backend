@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Notifications\ApiPasswordResetNotification;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\DashboardApplicationController;
 
 /*
@@ -56,6 +57,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verify.admin']], fu
 
     Route::get('/applications/sponsored', [DashboardApplicationController::class, 'sponsored'])
         ->name('sponsored-applications');
+
+    // School Routes
+    Route::resource('schools', SchoolController::class);
 
 });
 

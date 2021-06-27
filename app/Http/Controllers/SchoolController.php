@@ -14,7 +14,7 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.schools.index')->with('schools', School::all());
     }
 
     /**
@@ -24,7 +24,7 @@ class SchoolController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.schools.create');
     }
 
     /**
@@ -35,7 +35,43 @@ class SchoolController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'abbr' => 'required|string',
+            'name' => 'required|string|min:10',
+        ]);
+
+        $school = new School;
+
+
+        if ($school->where('name', $request->name)->exists()) {
+
+
+            $request->session()->flash('info', '"'.$request->name.'" already exists.');
+            $request->session()->flash('title', 'School');
+
+            return  redirect()->back();
+
+        }
+
+        if ($school->where('abbr', $request->abbr)->exists()) {
+
+
+            $request->session()->flash('info', 'A School with the abbreviation "'.$request->abbr.'" already exists.');
+            $request->session()->flash('title', 'School');
+
+            return  redirect()->back();
+
+        }
+
+        $school->name = $request->name;
+        $school->abbr = $request->abbr;
+
+        $school->saveOrFail();
+
+        $request->session()->flash('success', ''.$request->abbr.' has been successfully created.');
+        $request->session()->flash('title', 'School');
+
+        return  redirect()->route('schools.index');
     }
 
     /**
@@ -57,7 +93,7 @@ class SchoolController extends Controller
      */
     public function edit(School $school)
     {
-        //
+        return view('admin.schools.edit')->with('school', $school);
     }
 
     /**
@@ -69,17 +105,56 @@ class SchoolController extends Controller
      */
     public function update(Request $request, School $school)
     {
-        //
+        $this->validate($request, [
+            'abbr' => 'required|string',
+            'name' => 'required|string|min:10',
+        ]);
+
+        if (School::where('name', $request->name)->exists()) {
+
+
+            $request->session()->flash('info', '"'.$request->name.'" already exists.');
+            $request->session()->flash('title', 'School');
+
+            return  redirect()->back();
+
+        }
+
+        if (School::where('abbr', $request->abbr)->exists()) {
+
+
+            $request->session()->flash('info', 'A School with the abbreviation "'.$request->abbr.'" already exists.');
+            $request->session()->flash('title', 'School');
+
+            return  redirect()->back();
+
+        }
+
+        $school->update([
+            'name' => $request->name,
+            'abbr' => $request->abbr,
+        ]);
+
+        $request->session()->flash('success', ''.$request->abbr.' has been successfully updated.');
+        $request->session()->flash('title', 'School');
+
+        return  redirect()->route('schools.index');
+
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete the specified school.
      *
-     * @param  \App\Models\School  $school
+     * @param  School  $school
      * @return \Illuminate\Http\Response
      */
     public function destroy(School $school)
     {
-        //
+        $school->delete();
+
+        session()->flash('success', ''.$school->abbr.' has been successfully deleted.');
+        session()->flash('title', 'School');
+
+        return  redirect()->route('schools.index');
     }
 }

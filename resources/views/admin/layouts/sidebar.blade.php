@@ -47,31 +47,31 @@
         </a>
         <ul class="nav-main-submenu">
           <li class="nav-main-item">
-            <a class="nav-main-link {{ request()->routeIs('all-applications') ? ' active' : '' }} {{ request()->is('admin/posts/edit/*') ? ' active' : '' }}"
+            <a class="nav-main-link {{ request()->routeIs('all-applications') ? ' active' : '' }}"
               href="{{ route('all-applications') }}">
               <span class="nav-main-link-name">All Applications</span>
             </a>
           </li>
           <li class="nav-main-item">
-            <a class="nav-main-link {{ request()->routeIs('approved-applications') ? ' active' : '' }} {{ request()->is('admin/posts/edit/*') ? ' active' : '' }}"
+            <a class="nav-main-link {{ request()->routeIs('approved-applications') ? ' active' : '' }}"
               href="{{ route('approved-applications') }}">
               <span class="nav-main-link-name">Approved</span>
             </a>
           </li>
           <li class="nav-main-item">
-            <a class="nav-main-link {{ request()->routeIs('pending-applications') ? ' active' : '' }} {{ request()->is('admin/posts/edit/*') ? ' active' : '' }}"
+            <a class="nav-main-link {{ request()->routeIs('pending-applications') ? ' active' : '' }}"
               href="{{ route('pending-applications') }}">
               <span class="nav-main-link-name">Pending</span>
             </a>
           </li>
           <li class="nav-main-item">
-            <a class="nav-main-link {{ request()->routeIs('rejected-applications') ? ' active' : '' }} {{ request()->is('admin/posts/edit/*') ? ' active' : '' }}"
+            <a class="nav-main-link {{ request()->routeIs('rejected-applications') ? ' active' : '' }}"
               href="{{ route('rejected-applications') }}">
               <span class="nav-main-link-name">Rejected</span>
             </a>
           </li>
           <li class="nav-main-item">
-            <a class="nav-main-link {{ request()->routeIs('sponsored-applications') ? ' active' : '' }} {{ request()->is('admin/posts/edit/*') ? ' active' : '' }}"
+            <a class="nav-main-link {{ request()->routeIs('sponsored-applications') ? ' active' : '' }}"
               href="{{ route('sponsored-applications') }}">
               <span class="nav-main-link-name">Sponsored</span>
             </a>
@@ -88,7 +88,7 @@
         </a>
         <ul class="nav-main-submenu">
           <li class="nav-main-item">
-            <a class="nav-main-link {{ request()->is('admin/applications/all') ? ' active' : '' }} {{ request()->is('admin/posts/edit/*') ? ' active' : '' }}"
+            <a class="nav-main-link {{ request()->is('admin/applications/all') ? ' active' : '' }}"
               href="{{ route('all-applications') }}">
               <span class="nav-main-link-name">Progress</span>
             </a>
@@ -102,7 +102,7 @@
 
 
         <li
-          class="nav-main-item {{ request()->is('admin/feedbacks/*') ? ' open' : '' }}">
+          class="nav-main-item {{ request()->is('admin/schools*') ? ' open' : '' }}">
           <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false"
             href="#">
             <i class="nav-main-link-icon far fa-building"></i>
@@ -110,16 +110,16 @@
           </a>
           <ul class="nav-main-submenu">
             <li class="nav-main-item">
-              <a class="nav-main-link {{ request()->is('admin/feedbacks/comments') ? ' active' : '' }} {{ request()->is('admin/user/edit/*') ? ' active' : '' }}"
-                href="{{ route('feedbacks') }}">
+              <a class="nav-main-link {{ request()->routeIs('schools.index')  ? ' active' : '' }}"
+                href="{{ route('schools.index') }}">
                 <span class="nav-main-link-name">All Schools</span>
               </a>
             </li>
           </ul>
           <ul class="nav-main-submenu">
             <li class="nav-main-item">
-              <a class="nav-main-link {{ request()->is('admin/feedbacks/comments') ? ' active' : '' }} {{ request()->is('admin/user/edit/*') ? ' active' : '' }}"
-                href="{{ route('feedbacks') }}">
+              <a class="nav-main-link {{ request()->routeIs('schools.create') ? ' active' : '' }}"
+                href="{{ route('schools.create') }}">
                 <span class="nav-main-link-name">New School</span>
               </a>
             </li>
