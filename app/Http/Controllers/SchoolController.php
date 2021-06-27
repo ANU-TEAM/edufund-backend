@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\School;
 use Illuminate\Http\Request;
+use App\Traits\ApiResponder;
+use App\Http\Resources\SchoolResource;
 
 class SchoolController extends Controller
 {
+    use ApiResponder;
+    
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +19,13 @@ class SchoolController extends Controller
     public function index()
     {
         return view('admin.schools.index')->with('schools', School::all());
+    }
+
+    public function apiIndex()
+    {
+        return $this->success(
+            SchoolResource::collection(School::all()), 'Schools fetched successfully', 200
+        );
     }
 
     /**

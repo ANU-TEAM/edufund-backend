@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\SchoolController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,8 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/forgot-password', [AuthController::class, 'sendResetLink']);
 
 Route::get('/categories', [CategoryController::class, 'index']);
+
+Route::get('/schools', [SchoolController::class, 'apiIndex']);
 
 Route::get('/applications', [ApplicationController::class, 'index']);
 
