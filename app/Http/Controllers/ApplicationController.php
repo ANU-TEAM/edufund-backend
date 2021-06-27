@@ -50,7 +50,8 @@ class ApplicationController extends Controller
             'description' => 'required|string',
             'image_url' => 'required|image:jpeg,png,jpg,gif,svg|max:5120',
             'target_amount' => 'required|string',
-            'category_id' => 'required|numeric'
+            'category_id' => 'required|numeric',
+            'school_id' => 'required|numeric'
         ]);
 
         if ($validator->fails()) {
@@ -70,6 +71,7 @@ class ApplicationController extends Controller
         $application->image_url = $image_uploaded_path;
         $application->target_amount = $request->target_amount;
         $application->category_id = $request->category_id;
+        $application->school_id = $request->school_id;
 
         $application->save();
 
@@ -114,7 +116,8 @@ class ApplicationController extends Controller
             'description' => 'required|string',
             'image_url' => 'required|image:jpeg,png,jpg,gif,svg|max:5120',
             'target_amount' => 'required|string',
-            'category_id' => 'required|numeric'
+            'category_id' => 'required|numeric',
+            'school_id' => 'required|numeric'
         ]);
 
         if ($validator->fails()) {
@@ -136,6 +139,7 @@ class ApplicationController extends Controller
         $application->approved = 0;
         $application->target_amount = floatval($request->target_amount);
         $application->category_id = $request->category_id;
+        $application->school_id = $request->school_id;
 
         $application->save();
 

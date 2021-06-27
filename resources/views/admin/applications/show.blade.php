@@ -55,6 +55,10 @@
                                     <p>&#x20B5; {{ $application->amount_gained }}</p>
                                 </div>
                                 <div class="col-12">
+                                    <p class="h4 w400 text-muted">School</p>
+                                    <p>{{ $application->school->name }}</p>
+                                </div>
+                                <div class="col-12">
                                     <p class="h4 w400 text-muted">Description</p>
                                     <p>{{ $application->description }}</p>
                                 </div>

@@ -29,9 +29,9 @@ class ApplicationSeeder extends Seeder
         //     'target_amount' => 100, 'amount_gained' => 20, 'approved' => 1, 'user_id' => 1, 'category_id' => 1,
         // ]);
 
-        // \App\Models\Application::create([
-        //     'title' => 'Sosu Third Fund', 'description' => 'Hello Sosu', 'image_url' => 'https://via.placeholder.com/150',
-        //     'target_amount' => 100, 'amount_gained' => 20, 'approved' => 1, 'user_id' => 1, 'category_id' => 1,
-        // ]);
+        \App\Models\Application::create([
+            'title' => 'Sosu Third Fund', 'description' => 'Hello Sosu', 'image_url' => 'https://via.placeholder.com/150',
+            'target_amount' => 100, 'amount_gained' => 20, 'approved' => 1, 'user_id' => 1, 'category_id' => 1, 'school_id' => 1,
+        ]);
     }
 }

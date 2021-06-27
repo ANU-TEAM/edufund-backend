@@ -10,12 +10,18 @@ class Application extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'description', 'image_url', 'target_amount', 'user_id', 'category_id'
+        'title', 'description', 'image_url', 'target_amount', 'user_id',
+        'category_id', 'school_id'
     ];
     
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function school()
+    {
+        return $this->belongsTo(School::class);
     }
 
     public function user()
