@@ -15,6 +15,10 @@ class SchoolSeeder extends Seeder
     public function run()
     {
         School::create([
+            'abbr' => 'None',
+            'name' => 'School not available'
+        ]);
+        School::create([
             'abbr' => 'ANU',
             'name' => 'All Nations University'
         ]);
