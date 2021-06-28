@@ -21,15 +21,15 @@ class DashboardController extends Controller
         $applications = Application::all();
         $totalApplications = $applications->count();
         $pending = $applications->where('approved', '=', 0)->count();
-        $approved = $applications->where('approved', '=', 1)->count();
         $rejected = $applications->where('approved', '=', 2)->count();
+        $sponsored= $applications->where('approved', '=', 3)->count();
         
         return view('admin.dashboard', [
             'latest_pending_applications' => $latest_pending_applications,
             'applications' => $applications,
             'totalApplications' => $totalApplications,
             'pending' => $pending,
-            'approved' => $approved,
+            'sponsored' => $sponsored,
             'rejected' => $rejected
         ]);
     }

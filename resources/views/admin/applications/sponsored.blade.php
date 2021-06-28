@@ -13,7 +13,7 @@
         <div class="col-lg-12">
           <div class="block block-mode-loading-oneui">
             <div class="block-header block-header-default">
-              <h3 class="block-title">Rejected Applications</h3>
+              <h3 class="block-title">Sponsored Applications</h3>
               <div class="block-options">
                 <span class="badge btn-secondary">
                   {{ $sponsored_applications->count() }}

@@ -13,7 +13,7 @@
         <div class="col-lg-12">
           <div class="block block-mode-loading-oneui">
             <div class="block-header block-header-default">
-              <h3 class="block-title">Unresolved Issues</h3>
+              <h3 class="block-title">Resolved Issues</h3>
               <div class="block-options">
                 <span class="badge btn-secondary">
                   {{ $feedbacks->count() }}

@@ -22,11 +22,11 @@
 
         <div class="col-6 col-md-3 col-lg-6 col-xl-3">
           <a class="block block-rounded block-link-pop border-left border-success border-4x"
-            href="{{ route('approved-applications') }}">
+            href="{{ route('sponsored-applications') }}">
             <div class="block-content block-content-full">
-              <div class="font-size-sm font-w600 text-uppercase text-muted">Approved({{ $approved }})</div>
+              <div class="font-size-sm font-w600 text-uppercase text-muted">Sponsored({{ $sponsored }})</div>
               <div class="font-size-h2 font-w400 text-dark">
-                {{ round(($approved / $totalApplications) * 100) }}%
+                {{ round(($sponsored / $totalApplications) * 100) }}%
               </div>
             </div>
           </a>
