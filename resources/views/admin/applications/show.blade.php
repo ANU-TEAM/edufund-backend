@@ -9,7 +9,7 @@
             <div class="bg-black-75">
                 <div class="content content-full text-center">
                     <div class="my-3">
-                        <img class="img-avatar img-avatar-thumb"
+                        <img class="img-avatar img-avatar-thumb" style="object-fit:cover"
                         src="{{ Storage::disk('public')->url($application->image_url) }}" 
                         alt="{{ $application->title }}">
                     </div>
