@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Notifications\ApiPasswordResetNotification;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SchoolController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\DashboardApplicationController;
 
 /*
@@ -31,8 +32,21 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verify.admin']], fu
 
     Route::get('/detail/{id}', [DashboardController::class, 'detail'])->name('detail');
 
+
+    // Feedback Routes
     Route::get('/feedbacks/comments', [DashboardController::class, 'feedbacks'])->name('feedbacks');
 
+    Route::get('/feedbacks/resolve/{id}', [FeedbackController::class, 'resolve'])->name('resolve');
+
+    Route::get('/feedbacks/unresolve/{id}', [FeedbackController::class, 'unresolve'])->name('unresolve');
+
+    Route::get('/feedbacks/resolved', [FeedbackController::class, 'resolvedIssues'])
+    ->name('feedbacks.resolved');
+
+    Route::get('/feedbacks/unresolved', [FeedbackController::class, 'unresolvedIssues'])
+    ->name('feedbacks.unresolved');
+
+    
     Route::get('/approve/{id}', [DashboardController::class, 'approve'])->name('approve');
 
     Route::get('/reject/{id}', [DashboardController::class, 'reject'])->name('reject');

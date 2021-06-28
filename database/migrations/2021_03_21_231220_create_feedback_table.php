@@ -17,6 +17,7 @@ class CreateFeedbackTable extends Migration
             $table->id();
             $table->text('comment');
             $table->float('rating');
+            $table->unsignedTinyInteger('resolved')->default(0);
             $table->timestamps();
         });
     }

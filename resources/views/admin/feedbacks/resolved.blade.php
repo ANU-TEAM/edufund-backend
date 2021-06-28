@@ -6,18 +6,6 @@
 
     <!-- Page Content -->
     <div class="content content-narrow">
-      <!-- Stats -->
-      <div class="row">
-        <div class="col-6 col-md-3 col-lg-6 col-xl-3">
-          <div class="block block-rounded block-link-pop border-left border-info border-4x">
-            <div class="block-content block-content-full">
-              <div class="font-size-sm font-w600 text-uppercase text-muted">Overall Rating</div>
-              <div class="font-size-h2 font-w400 text-dark">{{ number_format($average, 2) }}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- END Stats -->
 
       <!-- List of Applicants -->
       <div class="row row-deck">
@@ -25,7 +13,7 @@
         <div class="col-lg-12">
           <div class="block block-mode-loading-oneui">
             <div class="block-header block-header-default">
-              <h3 class="block-title">Recent Issues</h3>
+              <h3 class="block-title">Unresolved Issues</h3>
               <div class="block-options">
                 <span class="badge btn-secondary">
                   {{ $feedbacks->count() }}

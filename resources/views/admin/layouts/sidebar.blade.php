@@ -143,7 +143,23 @@
             <li class="nav-main-item">
               <a class="nav-main-link {{ request()->is('admin/feedbacks/comments') ? ' active' : '' }} {{ request()->is('admin/user/edit/*') ? ' active' : '' }}"
                 href="{{ route('feedbacks') }}">
-                <span class="nav-main-link-name">Comments</span>
+                <span class="nav-main-link-name">Issues</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav-main-submenu">
+            <li class="nav-main-item">
+              <a class="nav-main-link {{ request()->routeIs('feedbacks.unresolved') ? ' active' : '' }} {{ request()->is('admin/user/edit/*') ? ' active' : '' }}"
+                href="{{ route('feedbacks.unresolved') }}">
+                <span class="nav-main-link-name">Not Resolved</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav-main-submenu">
+            <li class="nav-main-item">
+              <a class="nav-main-link {{ request()->routeIs('feedbacks.resolved') ? ' active' : '' }} {{ request()->is('admin/user/edit/*') ? ' active' : '' }}"
+                href="{{ route('feedbacks.resolved') }}">
+                <span class="nav-main-link-name">Resolved</span>
               </a>
             </li>
           </ul>

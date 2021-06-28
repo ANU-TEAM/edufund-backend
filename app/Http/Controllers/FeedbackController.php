@@ -54,6 +54,22 @@ class FeedbackController extends Controller
         );
     }
 
+    public function resolvedIssues()
+    {
+        $feedbacks = Feedback::where('resolved', '=', 1)->latest()->get();
+        return view('admin.feedbacks.resolved', [
+            'feedbacks' => $feedbacks,
+        ]);
+    }
+
+    public function unresolvedIssues()
+    {
+        $feedbacks = Feedback::where('resolved', '=', 0)->latest()->get();
+        return view('admin.feedbacks.unresolved', [
+            'feedbacks' => $feedbacks,
+        ]);
+    }
+
     /**
      * Display the specified resource.
      *
@@ -76,4 +92,20 @@ class FeedbackController extends Controller
     {
         //
     }
+
+    public function resolve($id)
+    {
+        $application = Feedback::findOrFail($id);
+        $application->resolve();
+        return back();
+    }
+
+    public function unresolve($id)
+    {
+        $application = Feedback::findOrFail($id);
+        $application->unresolve();
+        return back();
+    }
+
+    
 }
