@@ -31,7 +31,7 @@ Route::get('/schools', [SchoolController::class, 'apiIndex']);
 
 Route::get('/applications', [ApplicationController::class, 'index']);
 
-Route::get('/feedbacks', [FeedbackController::class, 'index']);
+// Route::get('/feedbacks', [FeedbackController::class, 'index']);
 Route::post('/feedbacks', [FeedbackController::class, 'store']);
 
 
