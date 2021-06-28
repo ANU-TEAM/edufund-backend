@@ -30,7 +30,7 @@ class ApplicationController extends Controller
     {
         $user_id = auth()->id();
         return $this->success(
-            ApplicationResource::collection(Application::where('user_id', $user_id)->get()),
+            ApplicationResource::collection(Application::where('user_id', $user_id)->latest()->get()),
             'Applications fetched successfully',
             200
         );
