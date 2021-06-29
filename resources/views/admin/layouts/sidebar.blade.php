@@ -36,7 +36,7 @@
         </a>
       </li>
 
-      <li class="nav-main-heading">OVERVIEW</li>
+      <li class="nav-main-heading">MANAGE APPLICATIONS</li>
 
       <li
         class="nav-main-item {{ request()->is('admin/applications/*') ? ' open' : '' }}">
@@ -129,8 +129,35 @@
 
 
       @if (Auth::user()->admin)
-        <li class="nav-main-heading">CUSTOMER CARE</li>
+        <li class="nav-main-heading">MANAGE ADMINS</li>
+        <li
+          class="nav-main-item {{ request()->is('admin/admin-users/*') ? ' open' : '' }}">
+          <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false"
+            href="#">
+            <i class="nav-main-link-icon si si-users"></i>
+            <span class="nav-main-link-name">Admins</span>
+          </a>
+          <ul class="nav-main-submenu">
+            <li class="nav-main-item">
+              <a class="nav-main-link {{ request()->routeIs('admin.users.index') ? ' active' : '' }}"
+                href="{{ route('admin.users.index') }}">
+                <span class="nav-main-link-name">All Admins</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav-main-submenu">
+            <li class="nav-main-item">
+              <a class="nav-main-link {{ request()->routeIs('admin.users.create') ? ' active' : '' }}"
+                href="{{ route('admin.users.create') }}">
+                <span class="nav-main-link-name">New Admin</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      @endif
 
+      @if (Auth::user()->admin)
+        <li class="nav-main-heading">CUSTOMER CARE</li>
 
         <li
           class="nav-main-item {{ request()->is('admin/feedbacks/*') ? ' open' : '' }}">
@@ -141,7 +168,7 @@
           </a>
           <ul class="nav-main-submenu">
             <li class="nav-main-item">
-              <a class="nav-main-link {{ request()->is('admin/feedbacks/comments') ? ' active' : '' }} {{ request()->is('admin/user/edit/*') ? ' active' : '' }}"
+              <a class="nav-main-link {{ request()->routeIs('feedbacks') ? ' active' : '' }}"
                 href="{{ route('feedbacks') }}">
                 <span class="nav-main-link-name">Issues</span>
               </a>
@@ -149,7 +176,7 @@
           </ul>
           <ul class="nav-main-submenu">
             <li class="nav-main-item">
-              <a class="nav-main-link {{ request()->routeIs('feedbacks.unresolved') ? ' active' : '' }} {{ request()->is('admin/user/edit/*') ? ' active' : '' }}"
+              <a class="nav-main-link {{ request()->routeIs('feedbacks.unresolved') ? ' active' : '' }}"
                 href="{{ route('feedbacks.unresolved') }}">
                 <span class="nav-main-link-name">Not Resolved</span>
               </a>
@@ -157,7 +184,7 @@
           </ul>
           <ul class="nav-main-submenu">
             <li class="nav-main-item">
-              <a class="nav-main-link {{ request()->routeIs('feedbacks.resolved') ? ' active' : '' }} {{ request()->is('admin/user/edit/*') ? ' active' : '' }}"
+              <a class="nav-main-link {{ request()->routeIs('feedbacks.resolved') ? ' active' : '' }}"
                 href="{{ route('feedbacks.resolved') }}">
                 <span class="nav-main-link-name">Resolved</span>
               </a>

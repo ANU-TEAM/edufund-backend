@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\DashboardApplicationController;
+use App\Http\Controllers\AdminUsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +79,19 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verify.admin']], fu
     
     // School Routes
     Route::resource('schools', SchoolController::class);
+
+    // Admin Users Routes
+    Route::get('/admin-users/all', [AdminUsersController::class, 'index'])
+    ->name('admin.users.index');
+
+    Route::get('/admin-users/create', [AdminUsersController::class, 'create'])
+    ->name('admin.users.create');
+
+    Route::post('/admin-users', [AdminUsersController::class, 'addAdmin'])
+    ->name('admin.users.add');
+
+    Route::post('/admin-users/{email}', [AdminUsersController::class, 'removeAdmin'])
+    ->name('admin.users.remove');
 
 });
 
