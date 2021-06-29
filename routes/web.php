@@ -72,6 +72,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verify.admin']], fu
     
     Route::get('/applications/sponsored', [DashboardApplicationController::class, 'sponsored'])
     ->name('sponsored-applications');
+
+    Route::post('/applications/set-amount-gained/{id}', [DashboardApplicationController::class, 'setAmountGained'])
+    ->name('applications.setAmountGained');
     
     // School Routes
     Route::resource('schools', SchoolController::class);

@@ -57,6 +57,22 @@ class DashboardApplicationController extends Controller
         ]);
     }
 
+    public function setAmountGained(Request $request, $id)
+    {
+        $this->validate($request, [
+            'amount_gained' => 'required|numeric',
+        ]);
+
+        $application = Application::findOrFail($id);
+
+        $application->setAmountGained($request->amount_gained);
+
+        $request->session()->flash('success', 'Amount gained is now: '.$application->amount_gained.'');
+        $request->session()->flash('title', 'Application');
+
+        return back();
+    }
+
     /**
      * Show the form for creating a new resource.
      *

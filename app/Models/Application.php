@@ -11,7 +11,7 @@ class Application extends Model
 
     protected $fillable = [
         'title', 'description', 'image_url', 'target_amount', 'user_id',
-        'category_id', 'school_id'
+        'category_id', 'school_id',
     ];
     
     public function category()
@@ -50,6 +50,12 @@ class Application extends Model
     public function sponsored()
     {
         $this->approved = 3;
+        return $this->save();
+    }
+
+    public function setAmountGained($amount)
+    {
+        $this->amount_gained = $this->amount_gained + $amount;
         return $this->save();
     }
 }

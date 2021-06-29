@@ -77,7 +77,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 mt-5">
                                     <p class="h5 text-muted">Actions</p>
                                         @if ($application->approved == 2 || $application->approved == 0)
                                             <div class="mr-2 mb-2">
@@ -114,6 +114,26 @@
                                                 </a>
                                             </div>
                                         @endif
+                                </div>
+                                <div class="col-12 mt-5">
+                                    <p class="h5 text-muted">Finance</p>
+                                    <form action="{{ route('applications.setAmountGained', ['id' => $application->id]) }}"
+                                        method="POST">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="amount_gained">Add Funds</label>
+                                            <input type="number"
+                                                class="form-control {{ $errors->has('amount_gained') ? 'is-invalid' : '' }} form-control"
+                                                id="amount_gained" name="amount_gained" value="{{ old('amount_gained') }}">
+                                            @if($errors->any())
+                                                <div class="invalid-feedback">{{ $errors->first('amount_gained') }}</div>
+                                            @endif
+                                        </div>
+                                        <button type="submit" type="button" 
+                                            class="btn btn-outline-primary">
+                                            <i class="fa fa-fw fa-donate"></i> Fund
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
