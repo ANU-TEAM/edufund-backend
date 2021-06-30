@@ -1,5 +1,5 @@
-### Old Version: http://sosuapp.tech/
-### New Version: https://edufund-backend-xgqq6.ondigitalocean.app/
+#### Old Version: http://sosuapp.tech/
+#### New Version: https://edufund-backend-xgqq6.ondigitalocean.app/
 
 ## Setting up the environment
 
