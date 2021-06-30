@@ -1,3 +1,6 @@
+### Old Version: http://sosuapp.tech/
+### New Version: https://edufund-backend-xgqq6.ondigitalocean.app/
+
 ## Setting up the environment
 
 To ensure Edufund (Laravel) can run on your system. Ensure you have PHP >= 7.3, MySQL, Apache Server, and preferrably PhpMyAdmin installed.
