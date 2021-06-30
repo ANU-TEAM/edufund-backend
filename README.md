@@ -54,6 +54,10 @@ Use the instructions below to run the project locally:
 NB: Change the ```APP_URL``` variable in the ```.env``` file to match your ip-address on which the backend is running. Use this same ip-address as the URL and Port in the [endpoints.dart](https://github.com/ANU-TEAM/edufund-mobileapp/blob/develop/lib/utils/endpoints.dart) of the [mobile app](https://github.com/ANU-TEAM/edufund-mobileapp). Doing this will enable images to be displayed on the mobile app.
 
 
+## Deployment Gotchas:
+
+1. When images are now showing up create a symbolic link to the public directory using: ```ln -s ../storage/app/public public/storage```
+
 
 ## Learning Laravel
 
