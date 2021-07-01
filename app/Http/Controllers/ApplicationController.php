@@ -161,7 +161,7 @@ class ApplicationController extends Controller
 
         $this->authorize('delete', $application);
         
-        Storage::disk('public')->delete($application->image_url);
+        Storage::disk(env('APP_STORAGE'))->delete($application->image_url);
 
         if($application->delete()){
             return $this->success(
