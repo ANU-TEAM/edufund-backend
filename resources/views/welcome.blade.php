@@ -55,7 +55,8 @@
         </p>
         <div class="header-home__btns header-home__btns-mobile">
           <a href="{{ asset('landing/assets/edufund.apk') }}" class="site-btn site-btn--accent header-home__btn">Start Using Edufund</a>
-          
+
+          <a href="{{ asset('https://paystack.com/pay/edufund') }}" class="site-btn site-btn--dark header-home__btn">Donate Now</a>
         </div>
       </div>
     </div>
