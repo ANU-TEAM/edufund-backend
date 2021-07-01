@@ -5,12 +5,12 @@
      <!-- Main Container -->
      <main id="main-container">
         <!-- Hero -->
-        <div class="bg-image" style="background-image: url('{{ Storage::disk('public')->url($application->image_url) }}');">
+        <div class="bg-image" style="background-image: url('{{ Storage::disk(env('APP_STORAGE'))->url($application->image_url) }}');">
             <div class="bg-black-75">
                 <div class="content content-full text-center">
                     <div class="my-3">
                         <img class="img-avatar img-avatar-thumb" style="object-fit:cover"
-                        src="{{ Storage::disk('public')->url($application->image_url) }}" 
+                        src="{{ Storage::disk(env('APP_STORAGE'))->url($application->image_url) }}" 
                         alt="{{ $application->title }}">
                     </div>
                     <h2 class="h3 font-w400 text-white-75">

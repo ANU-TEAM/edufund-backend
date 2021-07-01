@@ -128,7 +128,7 @@ class ApplicationController extends Controller
 
         $uploadFolder = 'applications';
         $existing_image_path = $application->image_url;
-        Storage::disk('public')->delete($existing_image_path);
+        Storage::disk(env('APP_STORAGE'))->delete($existing_image_path);
         $new_image_path = $request->file('image_url')->store($uploadFolder, 'public');
 
 
