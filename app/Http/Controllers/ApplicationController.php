@@ -62,7 +62,7 @@ class ApplicationController extends Controller
 
         $uploadFolder = 'applications';
         $image = $request->file('image_url');
-        $image_uploaded_path = $image->store($uploadFolder, 'public');
+        $image_uploaded_path = $image->store($uploadFolder, env('APP_STORAGE'));
         
 
         $application->user_id = auth()->user()->id;
@@ -129,7 +129,7 @@ class ApplicationController extends Controller
         $uploadFolder = 'applications';
         $existing_image_path = $application->image_url;
         Storage::disk(env('APP_STORAGE'))->delete($existing_image_path);
-        $new_image_path = $request->file('image_url')->store($uploadFolder, 'public');
+        $new_image_path = $request->file('image_url')->store($uploadFolder, env('APP_STORAGE'));
 
 
 
